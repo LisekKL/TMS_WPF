@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="Tournament_Management_Software.View.AddContestantView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
+             xmlns:view="clr-namespace:Tournament_Management_Software.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModels:AddContestantViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ConsoleLoggerViewModel}">
+            <view:ConsoleLoggerView/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="CustomerEdit" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFB0B0B0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Name="LblFirstName" Foreground="#FF060606" FontWeight="Bold" Background="#FFB0B0B0" >First Name</Label>
+        <TextBox Grid.Column="1" Text="{Binding TxtContestantFirstName, Mode=TwoWay}"></TextBox>
+
+        <Label Name="LblLastName" Grid.Row="1" FontWeight="Bold" Background="#FFB0B0B0">Last Name</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding TxtContestantLastName, Mode=TwoWay}"></TextBox>
+
+        <Label Name="LblDateOfBirth"  Grid.Row="2" FontWeight="Bold">Date of birth</Label>
+        <DatePicker x:Name="DtPicker" Grid.Column="1" Grid.Row="2" FirstDayOfWeek="Monday" DisplayDateEnd="05/07/2017 03:07:00" DisplayDateStart="2000-10-10" SelectedDate="{Binding TxtDateOfBirth}"/>
+
+        <Label Name="LblHeight" Grid.Row="3" FontWeight="Bold" Background="#FFB0B0B0">Height</Label>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding TxtContestantHeight, Mode=TwoWay}"></TextBox>
+
+        <Label Name="LblWeight" Grid.Row="4" FontWeight="Bold" Background="#FFB0B0B0">Weight</Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding TxtContestantWeight, Mode=TwoWay}"></TextBox>
+        <!--<Label Name="LblGender" Grid.Row="3" UseLayoutRounding="False" FontWeight="Bold">Gender</Label>
+        <TextBox Grid.Column="1" Grid.Row="3"  Text="{Binding TxtGender, Mode=TwoWay}" HorizontalAlignment="Center"></TextBox>-->
+
+        <Label Name="GenderRadioButton" Grid.Row="5" UseLayoutRounding="False" FontWeight="Bold">Gender RadioButton</Label>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <RadioButton x:Name="Male" Content="{Binding LblGenderMale}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="5" FontFamily="Segoe UI Black" VerticalContentAlignment="Center" />
+            <RadioButton x:Name="Female" Content="{Binding LblGenderFemale}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="5" FontFamily="Segoe UI Black" VerticalContentAlignment="Center"/>
+        </StackPanel>
+
+        <Button Grid.Row="6" Grid.ColumnSpan="2" Command="{Binding AddNewContestantCommand}" HorizontalAlignment="Center" VerticalAlignment="Stretch" x:Name="EditButton"  Padding="5,0,5,0" Background="#FF0B2643" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Segoe Print" Foreground="#FFEAEAEA">REGISTER CONTESTANT</Button>
+
+        <ContentControl Grid.Row="6" Grid.ColumnSpan="2" Content="{Binding LoggerWindow}"/>
+
+
+    </Grid>
+</UserControl>

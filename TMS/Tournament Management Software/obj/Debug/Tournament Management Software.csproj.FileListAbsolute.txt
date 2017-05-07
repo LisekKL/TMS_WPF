@@ -1,0 +1,35 @@
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\EntityFramework.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\EntityFramework.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csprojResolveAssemblyReference.cache
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\MainWindow.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\AllUsersView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\AddContestantView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\DefaultView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\ExploreDatabase.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\App.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.cache
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.lref
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\MainWindow.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\AllUsersView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\AddContestantView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\DefaultView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\ExploreDatabase.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.g.resources
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament_Management_Software.Properties.Resources.resources
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csproj.GenerateResource.Cache
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\ConsoleLoggerView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View\ConsoleLoggerView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
+C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
+C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb

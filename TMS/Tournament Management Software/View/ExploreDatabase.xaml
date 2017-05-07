@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Tournament_Management_Software.View.ExploreDatabase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
+        xmlns:view="clr-namespace:Tournament_Management_Software.View">
+
+    <UserControl.DataContext>
+        <viewModels:ExploreDatabaseViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewModels:DefaultViewModel}">
+            <view:DefaultView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AllContestantsViewModel}">
+            <view:AllUsersView/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding AgeClasses}"></DataGrid>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding WeightClasses}"></DataGrid>
+        <DataGrid Grid.Column="1" ItemsSource="{Binding Contestants}"></DataGrid>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <TextBox Text="{Binding TournamentInfo}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+        </Viewbox>
+    </Grid>
+</UserControl>
