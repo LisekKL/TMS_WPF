@@ -19,8 +19,14 @@
         <DataTemplate DataType="{x:Type viewModels:AddContestantViewModel}">
             <view:AddContestantView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:AllContestantsViewModel}">
-            <view:AllUsersView/>
+        <DataTemplate DataType="{x:Type viewModels:ShowAllContestantsViewModel}">
+            <view:ShowAllContestantsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddTournamentViewModel}">
+            <view:AddTournamentView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
+            <view:ShowAllTournamentsView/>
         </DataTemplate>
     </Window.Resources>
 
@@ -37,13 +43,16 @@
         </Grid.ColumnDefinitions>
         <Menu x:Name="NavigationMenu" Grid.ColumnSpan="2" Background="Black" Foreground="WhiteSmoke" HorizontalContentAlignment="Center" AllowDrop="True" ClipToBounds="True" Margin="0" FontFamily="Agency FB" FontSize="16" >
             <MenuItem Header="Home" Command="{Binding ShowHomeViewCommand}"></MenuItem>
-            <MenuItem Header="Contestants" Foreground="White">
-                <MenuItem Header="Add" Foreground="Black" Command="{Binding ShowEditViewCommand}"/>
+            <MenuItem Header="Contestants" Foreground="White" Visibility="{Binding TournamentOptionsVisibility}">
+                <MenuItem Header="Add" Foreground="Black" Command="{Binding ShowAddContestantViewCommand}"/>
                 <MenuItem Header="Show" Foreground="Black" Command="{Binding ShowAllContestantsCommand}"/>
-                <MenuItem Header="Explore" Foreground="Black" Command="{Binding ExploreDatabaseCommand}"/>
+            </MenuItem>
+            <MenuItem Header="Tournament" Foreground="White">
+                <MenuItem Header="New Tournament" Foreground="Black" Command="{Binding ShowAddNewTournamentCommand}"/>
+                <MenuItem Header="All Tournaments" Foreground="Black" Command="{Binding ShowAllTournamentsCommand}"/>
             </MenuItem>
         </Menu>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="18.667" FontFamily="OCR A Extended" TextAlignment="Center"  VerticalAlignment="Stretch" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD4C178" TextDecorations="{x:Null}" />
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="18" FontFamily="OCR A Extended" TextAlignment="Center"  VerticalAlignment="Stretch" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD4C178" TextDecorations="{x:Null}" />
 
         
         <ContentControl Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding CurrentView}" Background="DarkBlue">
@@ -53,7 +62,7 @@
 
         <!--<view:ContestantEditView  Grid.Row="2" Grid.Column="1"></view:ContestantEditView>-->
 
-        <Menu x:Name="Footer" Grid.Row="3" Grid.ColumnSpan="2" Background="#FF868686"></Menu>
+        <TextBox Grid.Row="4" Grid.ColumnSpan="2" Background="Black" Foreground="White" TextAlignment="Right" Text="{Binding CurrentTournamentId}"></TextBox>
 
     </Grid>
 

@@ -13,8 +13,8 @@
         <DataTemplate DataType="{x:Type viewModels:DefaultViewModel}">
             <view:DefaultView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:AllContestantsViewModel}">
-            <view:AllUsersView/>
+        <DataTemplate DataType="{x:Type viewModels:ShowAllContestantsViewModel}">
+            <view:ShowAllContestantsView/>
         </DataTemplate>
     </UserControl.Resources>
     <Grid>

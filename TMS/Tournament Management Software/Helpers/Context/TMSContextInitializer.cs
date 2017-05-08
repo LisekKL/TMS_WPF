@@ -12,14 +12,24 @@ namespace Tournament_Management_Software.Helpers.Context
         {
             context.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction,
                 $"ALTER DATABASE [{context.Database.Connection.Database}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
-            base.InitializeDatabase(context);
+            //base.InitializeDatabase(context);
         }
         protected override void Seed(TMSContext context)
         {
-            //Create Tournament --> Base class in Database TODO CHANGE DEPENDENCY
+            //Create Tournament --> Base class in Database
+            var tournaments = new ObservableCollection<Tournament>()
+            {
+                new Tournament()
+                {
+                    Name = "Tournament #1",
+                    Location = "Lublin",
+                    StartDate = DateTime.Parse("2017-06-20"),
+                    Info = "Testing purposes"
+                }
+            };
+            context.Tournaments.AddRange(tournaments);
 
             //Initiate AgeClasses
-
             var ageClasses = new ObservableCollection<AgeClass>()
             {
                 new AgeClass() { AgeClassName = "Smurfs", MinYear = 2006, MaxYear = 2007},
@@ -95,7 +105,7 @@ namespace Tournament_Management_Software.Helpers.Context
                 }
             };
 
-            //context.WeightClasses.AddRange(weightClasses);
+            context.WeightClasses.AddRange(weightClasses);
 
             //Initiate Contestants
             var allContestants = new ObservableCollection<Contestant>
@@ -108,6 +118,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Male,
                     Height = 165,
                     Weight = 68.5,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -117,6 +128,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Female,
                     Height = 155,
                     Weight = 58,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -126,6 +138,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Female,
                     Height = 159,
                     Weight = 54,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -135,6 +148,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Male,
                     Height = 149,
                     Weight = 52,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -144,6 +158,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Male,
                     Height = 152,
                     Weight = 58,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -153,6 +168,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Female,
                     Height = 156,
                     Weight = 54,
+                    TournamentId = tournaments[0].TournamentId
                 },
                 new Contestant()
                 {
@@ -162,6 +178,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Gender = GenderEnum.Male,
                     Height = 160,
                     Weight = 64.5,
+                    TournamentId = tournaments[0].TournamentId
                 }
             };
 

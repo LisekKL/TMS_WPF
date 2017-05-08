@@ -43,11 +43,31 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,31 +86,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\ActiveTournamentId.cs" />
     <Compile Include="Helpers\Context\ContestantData.cs" />
     <Compile Include="Helpers\Context\TMSContextInitializer.cs" />
     <Compile Include="Helpers\Context\TMSContext.cs" />
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\EnumBooleanConverter.cs" />
     <Compile Include="Helpers\Enums\GenderEnum.cs" />
+    <Compile Include="Helpers\Logger\CollapsibleLogEntry.cs" />
+    <Compile Include="Helpers\Logger\LogEntry.cs" />
+    <Compile Include="Helpers\Logger\LoggerView.xaml.cs">
+      <DependentUpon>LoggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Logger\LoggerViewModel.cs" />
+    <Compile Include="Helpers\Logger\LogEntryView.xaml.cs">
+      <DependentUpon>LogEntryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Logger\LogEntryViewModel.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
+    <Compile Include="Helpers\TextBoxOutputWriter.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Model\Round.cs" />
     <Compile Include="Model\Tournament.cs" />
-    <Compile Include="ViewModels\AllContestantsViewModel.cs" />
+    <Compile Include="ViewModels\ShowAllContestantsViewModel.cs" />
     <Compile Include="ViewModels\AddContestantViewModel.cs" />
-    <Compile Include="ViewModels\ConsoleLoggerViewModel.cs" />
     <Compile Include="ViewModels\DefaultViewModel.cs" />
+    <Compile Include="ViewModels\EditExistingTournamentViewModel.cs" />
     <Compile Include="ViewModels\ExploreDatabaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="View\AllUsersView.xaml.cs">
-      <DependentUpon>AllUsersView.xaml</DependentUpon>
+    <Compile Include="ViewModels\RoundRobinViewModel.cs" />
+    <Compile Include="ViewModels\AddTournamentViewModel.cs" />
+    <Compile Include="ViewModels\ShowAllTournamentsViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AddTournamentView.xaml.cs">
+      <DependentUpon>AddTournamentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShowAllContestantsView.xaml.cs">
+      <DependentUpon>ShowAllContestantsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddContestantView.xaml.cs">
       <DependentUpon>AddContestantView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ConsoleLoggerView.xaml.cs">
-      <DependentUpon>ConsoleLoggerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DefaultView.xaml.cs">
       <DependentUpon>DefaultView.xaml</DependentUpon>
@@ -98,6 +136,20 @@
     <Compile Include="View\ExploreDatabase.xaml.cs">
       <DependentUpon>ExploreDatabase.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RoundRobinView.xaml.cs">
+      <DependentUpon>RoundRobinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShowAllTournamentsView.xaml.cs">
+      <DependentUpon>ShowAllTournamentsView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Helpers\Logger\LogEntryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helpers\Logger\LoggerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,15 +166,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\AllUsersView.xaml">
+    <Page Include="View\AddTournamentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShowAllContestantsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AddContestantView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ConsoleLoggerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +183,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ExploreDatabase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RoundRobinView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShowAllTournamentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

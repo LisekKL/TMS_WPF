@@ -12,22 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GalaSoft.MvvmLight.Messaging;
-using Tournament_Management_Software.Helpers;
 
 namespace Tournament_Management_Software.View
 {
     /// <summary>
-    /// Interaction logic for ContestantEditView.xaml
+    /// Interaction logic for AllUsersView.xaml
     /// </summary>
-    public partial class AddContestantView : UserControl
+    public partial class ShowAllContestantsView : UserControl
     {
-        public AddContestantView()
+        public ShowAllContestantsView()
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, DoNothing);
-            InitializeComponent();           
+            InitializeComponent();
         }
-        public void DoNothing(ActiveTournamentId action) { }
-
     }
 }

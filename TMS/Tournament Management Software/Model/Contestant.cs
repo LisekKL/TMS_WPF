@@ -22,7 +22,9 @@ namespace Tournament_Management_Software.Model
                    LastName + ", Age " + GetAge() + ", Weight " +
                    Weight + ", Height " + Height;
         }
-        public int AgeClassId { get; set; }
-        //public virtual AgeClass AgeClass { get; set; }
+        public int WeightClass { get; set; }
+
+        public int TournamentId { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }

@@ -1,9 +1,13 @@
 ﻿
-
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\MainWindow.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\View\AllUsersView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\View\AddContestantView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\View\DefaultView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\View\ExploreDatabase.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\View\ConsoleLoggerView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\App.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Helpers\Logger\LogEntryView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Helpers\Logger\LoggerView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\MainWindow.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\AddTournamentView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\ShowAllContestantsView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\AddContestantView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\DefaultView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\ExploreDatabase.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\RoundRobinView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\ShowAllTournamentsView.xaml;;
 

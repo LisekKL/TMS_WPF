@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Enums;
+using Tournament_Management_Software.Helpers.Logger;
 using Tournament_Management_Software.Model;
 using static System.Double;
 
@@ -15,9 +17,8 @@ namespace Tournament_Management_Software.ViewModels
 {
     public class AddContestantViewModel : ObservableObject
     {
-        private readonly Contestant _contestant = new Contestant();
-        private object _loggerWindow;
-        public object LoggerWindow { get { return _loggerWindow; } set { _loggerWindow = value; RaisePropertyChangedEvent("LoggerWindow"); } }
+        private Contestant _contestant;
+        public Contestant Contestant { get { return _contestant; } set { _contestant = value; RaisePropertyChangedEvent("Contestant"); } }
 
         public GenderEnum Gender { get { return _contestant.Gender; } set { _contestant.Gender = value; RaisePropertyChangedEvent("Gender"); } }
         public string TxtContestantFirstName
@@ -29,8 +30,8 @@ namespace Tournament_Management_Software.ViewModels
                 RaisePropertyChangedEvent("TxtContestantFirstName");
             }
         }
+        public string OutputMessage { get; set; }
 
-        public string OutputMessage { get; set; } = "Logger";
         public ICommand AddNewContestantCommand => new DelegateCommand(AddNewContestant);
         public string TxtContestantWeight { get { return _contestant.Weight.ToString(); } set
             {
@@ -42,40 +43,15 @@ namespace Tournament_Management_Software.ViewModels
             _contestant.Height = Parse(value);
             RaisePropertyChangedEvent("Height");
         } }
-        public void AddNewContestant()
-        {
-            try
-            {
-                TMSContext context = new TMSContext();
-                //TODO: VALIDATION
-                context.Contestants.AddOrUpdate(_contestant);
-                context.SaveChanges();
-                OutputMessage += "\nSuccessfully added a new contestant to the database!\n";
-                RaisePropertyChangedEvent("OutputMessage");
-                OutputMessage += _contestant.GetContestantDataString();
-                RaisePropertyChangedEvent("OutputMessage");
-
-            }
-            catch (Exception e)
-            {
-                OutputMessage += "\nERROR adding new contestant to database!\nErrormessage = " + e.Message + "\n";
-                RaisePropertyChangedEvent("OutputMessage");
-                OutputMessage += _contestant.GetContestantDataString();
-                RaisePropertyChangedEvent("OutputMessage");
-            }
-            
-        }
-
         public string TxtContestantLastName
         {
             get { return _contestant.LastName; }
             set
             {
-                _contestant.LastName = value; 
+                _contestant.LastName = value;
                 RaisePropertyChangedEvent("ContestantLastName");
             }
         }
-
         public string TxtDateOfBirth
         {
             get
@@ -88,15 +64,72 @@ namespace Tournament_Management_Software.ViewModels
                 RaisePropertyChangedEvent("DateOfBirth");
             }
         }
-
-       // public DateTime DtPickerDateOfBirth { get { return _contestant.DateOfBirth; } set { _contestant.DateOfBirth = value; RaisePropertyChangedEvent("DateOfBirth"); } }
-
-        //public string TxtGender
-        //{
-        //    get { return _contestant.Gender.ToString(); }
-        //    set { _contestant.Gender = value.Equals("M") ? GenderEnum.Male : GenderEnum.Female; }
-        //}
-        public string LblGenderMale => "Male";
+        public DateTime DtPickerDateOfBirth { get { return _contestant.DateOfBirth; } set { _contestant.DateOfBirth = value; RaisePropertyChangedEvent("DateOfBirth"); } }
+        public bool IsMale
+        {
+            get { return _contestant.Gender.ToString().Equals("male", StringComparison.InvariantCultureIgnoreCase); }
+            set { _contestant.Gender = value ? GenderEnum.Male : GenderEnum.Female; }
+        }
+        public bool IsFemale
+        {
+            get { return _contestant.Gender.ToString().Equals("female", StringComparison.InvariantCultureIgnoreCase); }
+            set { _contestant.Gender = value ? GenderEnum.Female : GenderEnum.Male; }
+        }
         public string LblGenderFemale => "Female";
+        public string LblGenderMale => "Male";
+
+        public static int TournamentId { get; set; }
+        public AddContestantViewModel(int tournamentId)
+        {
+            Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentId);
+            _contestant = new Contestant() {TournamentId = tournamentId};
+        }
+
+        public AddContestantViewModel()
+        {
+            Messenger.Default.Register<ActiveTournamentId>(this, DoNothing);
+            _contestant = new Contestant();
+        }
+
+        public void DoNothing(ActiveTournamentId action) { }
+
+        public void SetTournamentId(ActiveTournamentId action)
+        {
+            TournamentId = action.TournamentId;
+            RaisePropertyChangedEvent("TournamentId");
+        }
+        public void AddNewContestant()
+        {           
+            try
+            {
+                TMSContext context = new TMSContext();
+                _contestant.TournamentId = TournamentId;
+                //TODO: VALIDATION
+                context.Contestants.AddOrUpdate(_contestant);
+                context.SaveChanges();
+                OutputMessage += "\nSuccessfully added a new contestant to the database!\n";
+                OutputMessage += _contestant.GetContestantDataString();
+                RaisePropertyChangedEvent("OutputMessage");
+            }
+            catch (Exception e)
+            {
+                OutputMessage += "\nERROR adding new contestant to database!\nErrormessage = " + e.Message + "\n";
+                OutputMessage += _contestant.GetContestantDataString();
+                RaisePropertyChangedEvent("OutputMessage");
+            }
+            ClearData();
+            RaisePropertyChangedEvent("Contestant");
+        }
+
+        public void ClearData()
+        {
+            TxtContestantFirstName = String.Empty;
+            TxtContestantLastName = String.Empty;
+            TxtContestantHeight = String.Empty;
+            TxtContestantWeight = String.Empty;
+            TxtDateOfBirth = String.Empty;
+            _contestant = new Contestant();
+            RaisePropertyChangedEvent("Contestant");
+        }
     }
 }

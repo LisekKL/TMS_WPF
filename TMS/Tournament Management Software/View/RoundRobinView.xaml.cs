@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Tournament_Management_Software.View
 {
     /// <summary>
-    /// Interaction logic for ConsoleLoggerView.xaml
+    /// Interaction logic for RoundRobinView.xaml
     /// </summary>
-    public partial class ConsoleLoggerView : UserControl
+    public partial class RoundRobinView : UserControl
     {
-        public ConsoleLoggerView()
+        public RoundRobinView()
         {
             InitializeComponent();
         }

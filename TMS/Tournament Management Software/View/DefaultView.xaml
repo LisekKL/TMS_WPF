@@ -3,12 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Tournament_Management_Software.View"
              xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
+             xmlns:view="clr-namespace:Tournament_Management_Software.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.DataContext>
         <viewModels:DefaultViewModel/>
     </UserControl.DataContext>
-    <TextBlock Background="#FF767676" Text="{Binding Text }" FontFamily="Roboto" />
+   <UserControl.Resources>
+       <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
+           <view:ShowAllTournamentsView/>
+       </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Background="#FF777B85">
+            <TextBox Text="{Binding Text}" IsReadOnly="True" Visibility="{Binding TextPanelVisibility}"></TextBox>
+            <ContentControl Content="{Binding TournamentView}" Padding="20" VerticalAlignment="Stretch"></ContentControl>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding ButtonPanelVisibility}">
+                <Button Command="{Binding CreateNewTournamentCommand}" Background="#FF1D4C65" Padding="5" Margin="5,5,10,5" Foreground="#FFCECECE" FontFamily="OCR A Extended" >New tournament</Button>
+                <Button Command="{Binding EditExistingTournamentCommand}" Visibility="{Binding EditButtonVisibility}" FontFamily="OCR A Extended" Padding="5" Margin="10,5,5,5">Edit tournament</Button>
+            </StackPanel>
+        </StackPanel>
+        <!--<TextBox VerticalAlignment="Bottom" Height="25" Text="{Binding FooterText}" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+    </Grid>
 </UserControl>

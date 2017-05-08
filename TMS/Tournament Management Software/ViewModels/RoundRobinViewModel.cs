@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tournament_Management_Software.ViewModels
 {
-    public class ConsoleLoggerViewModel
+    public class RoundRobinViewModel
     {
-        public string OutputMessage { get; set; } = "";
+
     }
 }

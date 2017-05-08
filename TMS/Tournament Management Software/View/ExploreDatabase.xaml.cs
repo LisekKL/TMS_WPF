@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Tournament_Management_Software.View
 {
     /// <summary>
-    /// Interaction logic for ExploreDatabase.xaml
+    /// Interaction logic for SetExploreDatabase.xaml
     /// </summary>
     public partial class ExploreDatabase : UserControl
     {
