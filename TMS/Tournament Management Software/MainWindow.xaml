@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
         xmlns:view="clr-namespace:Tournament_Management_Software.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="650">
+        Title="MainWindow" Height="500" Width="800">
 
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
@@ -16,55 +16,51 @@
         <DataTemplate DataType="{x:Type viewModels:DefaultViewModel}">
             <view:DefaultView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:AddContestantViewModel}">
-            <view:AddContestantView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:ShowAllContestantsViewModel}">
-            <view:ShowAllContestantsView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:AddTournamentViewModel}">
-            <view:AddTournamentView/>
-        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
             <view:ShowAllTournamentsView/>
         </DataTemplate>
+        <!--<DataTemplate DataType="{x:Type viewModels:ContestantsViewModel}">
+            <view:ContestantsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CategoriesViewModel}">
+            <view:CategoriesView/>
+        </DataTemplate>-->
     </Window.Resources>
 
-    <Grid Background="AliceBlue" HorizontalAlignment="Stretch" >
+    <Grid Background="YellowGreen" HorizontalAlignment="Stretch" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" x:Name="MenuRow"/>
-            <RowDefinition Height="40" x:Name="TitleRow"/>
-            <RowDefinition Height="*" x:Name="DataRow"/>
-            <RowDefinition Height="25" x:Name="FooterRow"/>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="125" x:Name="MenuBar" />
-            <ColumnDefinition Width="*" x:Name="DataColumn"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <Menu x:Name="NavigationMenu" Grid.ColumnSpan="2" Background="Black" Foreground="WhiteSmoke" HorizontalContentAlignment="Center" AllowDrop="True" ClipToBounds="True" Margin="0" FontFamily="Agency FB" FontSize="16" >
-            <MenuItem Header="Home" Command="{Binding ShowHomeViewCommand}"></MenuItem>
-            <MenuItem Header="Contestants" Foreground="White" Visibility="{Binding TournamentOptionsVisibility}">
-                <MenuItem Header="Add" Foreground="Black" Command="{Binding ShowAddContestantViewCommand}"/>
-                <MenuItem Header="Show" Foreground="Black" Command="{Binding ShowAllContestantsCommand}"/>
-            </MenuItem>
-            <MenuItem Header="Tournament" Foreground="White">
-                <MenuItem Header="New Tournament" Foreground="Black" Command="{Binding ShowAddNewTournamentCommand}"/>
-                <MenuItem Header="All Tournaments" Foreground="Black" Command="{Binding ShowAllTournamentsCommand}"/>
-            </MenuItem>
-        </Menu>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="18" FontFamily="OCR A Extended" TextAlignment="Center"  VerticalAlignment="Stretch" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD4C178" TextDecorations="{x:Null}" />
 
-        
-        <ContentControl Grid.Row="2" Grid.ColumnSpan="2" Content="{Binding CurrentView}" Background="DarkBlue">
+        <Viewbox Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="30">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <Button HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" Margin="0,0,50,0" Command="{Binding NavigateHomeCommand}">HOME</Button>
+                <TextBox HorizontalAlignment="Right" Text="ID:" IsReadOnly="True" Background="Transparent" FontSize="12" FontWeight="Bold" Foreground="Black"/>
+                <TextBox HorizontalAlignment="Right" Text="{Binding CurrentTournamentId}" IsReadOnly="True"/>
+            </StackPanel>
+        </Viewbox>
 
-        </ContentControl>
+        <Viewbox Grid.Row="1" VerticalAlignment="Stretch" Margin="20">
+            <StackPanel Background="Orange">
+                <Label FontWeight="Bold" VerticalAlignment="Top">Options</Label>
+                <ItemsControl ItemsSource="{Binding ListView}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding Command}" Content="{Binding Label}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Viewbox>
 
-
-        <!--<view:ContestantEditView  Grid.Row="2" Grid.Column="1"></view:ContestantEditView>-->
-
-        <TextBox Grid.Row="4" Grid.ColumnSpan="2" Background="Black" Foreground="White" TextAlignment="Right" Text="{Binding CurrentTournamentId}"></TextBox>
-
+        <Viewbox Grid.Column="1" Grid.Row="1" Margin="10">
+            <ContentControl Content="{Binding CurrentView}"/>
+        </Viewbox>
     </Grid>
-
 </Window>
 

@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Model;
@@ -11,70 +12,69 @@ namespace Tournament_Management_Software.ViewModels
 {
     public class DefaultViewModel : ObservableObject
     {
-        public string Text { get; set; }
-        public string FooterText { get; set; } = "Tournament Management Software Default View";
-        public Visibility EditButtonVisibility { get; set; }
-        public Visibility ButtonPanelVisibility { get; set; }
-        public Visibility TextPanelVisibility { get; set; }
+        public ObservableCollection<ButtonItem> ListView { get; set; } = new ObservableCollection<ButtonItem>();
+        public string ListViewTitle { get; set; } = "Tournaments";
 
+        private int _currentTournamentId;
+        public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value; RaisePropertyChangedEvent("CurrentTournamentId"); } }
         public DefaultViewModel()
         {
-            Text = "Reading data from database..."; 
-            //Get content form Database about current Tournaments --> TODO : How to make ShowAllTournament Do that and give me back the count of Tournaments?
-            var context = new TMSContext();
-            var queryCurrentTournaments = (from t in context.Tournaments where t.EndDate == null select t).ToList();
-            Tournaments = new ObservableCollection<Tournament>(queryCurrentTournaments);
-            if (Tournaments.Count > 0)
-            {
-                _tournamentView = new ShowAllTournamentsViewModel(Tournaments);
-                RaisePropertyChangedEvent("TournamentView");
-                Text = "Here is a list of current Tournaments in Database";
-                
-                EditButtonVisibility = Visibility.Visible;
-            }
-            else
-            {
-                Text =
-                    "Oops.... \nIt seems you don't have any current Tournaments running....\nCreate one now by clicking the \"New Tournament\"-button!";
-                EditButtonVisibility = Visibility.Hidden;
-            }
-            TextPanelVisibility = Visibility.Visible;
-            ButtonPanelVisibility = Visibility.Visible;
-            RaisePropertyChangedEvent("TournamentView");
-            RaisePropertyChangedEvent("EditButtonVisibility");
-            RaisePropertyChangedEvent("Text");
-
+            Messenger.Default.Register<ActiveTournamentId>(this, SetCurrentTournamentId);
+            InitiateListView();
+            _currentView = new ShowAllTournamentsViewModel();
+          //  RaisePropertyChangedEvent("CurrentView");
         }
 
-        private object _tournamentView;
-        public object TournamentView { get { return _tournamentView; } set { _tournamentView = value; RaisePropertyChangedEvent("TournamentView"); } }
-
-        private ObservableCollection<Tournament> _tournaments;
-        public ObservableCollection<Tournament> Tournaments { get { return _tournaments; } set { _tournaments = value; RaisePropertyChangedEvent("Tournaments"); } }
-
-        public ICommand CreateNewTournamentCommand => new DelegateCommand(CreateNewTournament);
-        public ICommand EditExistingTournamentCommand => new DelegateCommand(EditExistingTournament);
         public ICommand ShowAllTournamentsCommand => new DelegateCommand(ShowAllTournaments);
+        public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
+        public ICommand GoToCurrentTournamentCommand => new DelegateCommand(GoToCurrentTournament);
 
-        //public int TournamentId { get; set; }
-
+        public void SetCurrentTournamentId(ActiveTournamentId action)
+        {
+            CurrentTournamentId = action.Message;
+            RaisePropertyChangedEvent("CurrentTournamentId");
+        }
         public void ShowAllTournaments()
         {
-            _tournamentView = new ShowAllTournamentsViewModel();
-            RaisePropertyChangedEvent("TournamentView");
+            CurrentView = new ShowAllTournamentsViewModel();
+            Messenger.Default.Send(new ChangeView() {Message = _currentView});
+            RaisePropertyChangedEvent("CurrentView");
         }
-        public void EditExistingTournament() { 
-            _tournamentView = new EditExistingTournamentViewModel();
-            RaisePropertyChangedEvent("TournamentView");
-        }
-        public void CreateNewTournament()
+        public void AddNewTournament()
         {
-            ButtonPanelVisibility = Visibility.Collapsed;
-            TextPanelVisibility = Visibility.Collapsed;
-            RaisePropertyChangedEvent("ButtonPanelVisibility");
-            _tournamentView = new AddTournamentViewModel();
-            RaisePropertyChangedEvent("TournamentView");
+            CurrentView = new AddTournamentViewModel();
+            RaisePropertyChangedEvent("CurrentView");
         }
-        
+        public void GoToCurrentTournament()
+        {
+            if (_currentTournamentId > 0)
+                CurrentView = new CurrentTournamentViewModel(_currentTournamentId);
+            else
+            {
+                MessageBox.Show("Nie wybrano turnieju lub turniej nie poprawny!");
+            }
+            RaisePropertyChangedEvent("CurrentView");
+        }
+
+        public void InitiateListView()
+        {
+            ListView.Add(new ButtonItem() {Label = "All Tournaments", Command = ShowAllTournamentsCommand});
+            ListView.Add(new ButtonItem() {Label = "Add new tournament", Command = AddNewTournamentCommand});
+            ListView.Add(new ButtonItem() {Label = "Current Tournament", Command = GoToCurrentTournamentCommand});
+            RaisePropertyChangedEvent("ListView");
+            Messenger.Default.Send(new ChangeListView() {Message = ListView});
+        }
+
+        private object _currentView;
+
+        public object CurrentView
+        {
+            get { return _currentView; }
+            set
+            {
+                _currentView = value;
+                RaisePropertyChangedEvent("CurrentView");
+            }
+        }
     }
 }

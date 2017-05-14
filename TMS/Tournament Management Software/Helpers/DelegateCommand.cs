@@ -25,8 +25,7 @@ namespace Tournament_Management_Software.Helpers
         public event EventHandler CanExecuteChanged;
         public void RaiseCanExecuteChanged()
         {
-            if(CanExecuteChanged != null)
-                CanExecuteChanged(this,EventArgs.Empty);
+            CanExecuteChanged?.Invoke(this,EventArgs.Empty);
         }
 
 

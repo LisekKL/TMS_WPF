@@ -10,7 +10,7 @@ namespace Tournament_Management_Software.Helpers.Context
 {
     public class TMSContext : DbContext
     {
-        public TMSContext() : base("TMS_DEV")
+        public TMSContext() : base("TMS_TST")
         {
             //Database.SetInitializer(new TMSContextInitializer());
         }

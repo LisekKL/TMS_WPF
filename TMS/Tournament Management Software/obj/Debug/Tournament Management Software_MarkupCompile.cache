@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\App.xaml
-10-1234166023
+7-800444453
 
-471198225432
+382111072015
 74-49805806
-Helpers\Logger\LogEntryView.xaml;Helpers\Logger\LoggerView.xaml;MainWindow.xaml;View\AddTournamentView.xaml;View\ShowAllContestantsView.xaml;View\AddContestantView.xaml;View\DefaultView.xaml;View\ExploreDatabase.xaml;View\RoundRobinView.xaml;View\ShowAllTournamentsView.xaml;
+MainWindow.xaml;View\AddTournamentView.xaml;View\CurrentTournamentView.xaml;View\ShowAllContestantsView.xaml;View\AddContestantView.xaml;View\DefaultView.xaml;View\ShowAllTournamentsView.xaml;
 
 False
 

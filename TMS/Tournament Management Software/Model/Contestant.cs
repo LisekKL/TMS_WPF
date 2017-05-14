@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Security.Cryptography;
+using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Enums;
 
 namespace Tournament_Management_Software.Model
@@ -11,8 +13,7 @@ namespace Tournament_Management_Software.Model
 
         public Contestant()
         {
-            _counter++;
-            ContestantId = _counter;
+            ContestantId = ++_counter;
         }
         public int ContestantId { get; set; }
 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace Tournament_Management_Software
+namespace Tournament_Management_Software.Helpers
 {
     public class ObservableObject : INotifyPropertyChanged
     {
@@ -14,10 +9,7 @@ namespace Tournament_Management_Software
         protected void RaisePropertyChangedEvent(string propertyName)
         {
             var handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

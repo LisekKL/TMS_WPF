@@ -9,14 +9,14 @@
     <UserControl.DataContext>
         <viewModels:ShowAllContestantsViewModel/>
     </UserControl.DataContext>
-    <DataGrid Background="LightGray" HorizontalAlignment="Stretch" ItemsSource="{Binding Contestants}" AutoGenerateColumns="True" Grid.IsSharedSizeScope="True" HeadersVisibility="Column" VerticalScrollBarVisibility="Auto">
-    <DataGrid.Columns>
-        <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name"/>
-        <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name"/>
-        <DataGridTextColumn Binding="{Binding DateOfBirth}" Header="Date of Birth"/>
-        <DataGridTextColumn Binding="{Binding Height}" Header="Height in cm"/>
-        <DataGridTextColumn Binding="{Binding Weight}" Header="Weight in kg"/>
-    </DataGrid.Columns>    
+    <DataGrid Background="LightGray" HorizontalAlignment="Stretch" ItemsSource="{Binding Contestants}" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name"/>
+            <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name"/>
+            <DataGridTextColumn Binding="{Binding DateOfBirth}" Header="Date of Birth"/>
+            <DataGridTextColumn Binding="{Binding Height}" Header="Height in cm"/>
+            <DataGridTextColumn Binding="{Binding Weight}" Header="Weight in kg"/>
+        </DataGrid.Columns>
     </DataGrid>
-    
+
 </UserControl>

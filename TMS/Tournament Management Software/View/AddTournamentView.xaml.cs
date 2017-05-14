@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Tournament_Management_Software.View
 {
     /// <summary>
-    /// Interaction logic for SetExploreDatabase.xaml
+    /// Interaction logic for AddTournamentView.xaml
     /// </summary>
-    public partial class ExploreDatabase : UserControl
+    public partial class AddTournamentView : UserControl
     {
-        public ExploreDatabase()
+        public AddTournamentView()
         {
             InitializeComponent();
         }

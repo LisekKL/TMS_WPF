@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Tournament_Management_Software.Helpers
 {
-    public class ActiveTournamentId
+    public class ButtonItem
     {
-        public int Message { get; set; }
+        public string Label { get; set; }
+        public ICommand Command { get; set; }
     }
 }

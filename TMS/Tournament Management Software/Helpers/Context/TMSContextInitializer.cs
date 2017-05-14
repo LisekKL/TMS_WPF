@@ -6,14 +6,14 @@ using Tournament_Management_Software.Model;
 
 namespace Tournament_Management_Software.Helpers.Context
 {
-    public class TMSContextInitializer : DropCreateDatabaseAlways<TMSContext>
+    public class TMSContextInitializer : DropCreateDatabaseIfModelChanges<TMSContext>
     {
-        public override void InitializeDatabase(TMSContext context)
-        {
-            context.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction,
-                $"ALTER DATABASE [{context.Database.Connection.Database}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
-            //base.InitializeDatabase(context);
-        }
+        //public override void InitializeDatabase(TMSContext context)
+        //{
+        //    //context.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction,
+        //    //    $"ALTER DATABASE [{context.Database.Connection.Database}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+        //    base.InitializeDatabase(context);
+        //}
         protected override void Seed(TMSContext context)
         {
             //Create Tournament --> Base class in Database

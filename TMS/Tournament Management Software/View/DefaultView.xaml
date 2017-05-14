@@ -7,23 +7,27 @@
              xmlns:view="clr-namespace:Tournament_Management_Software.View"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
     <UserControl.DataContext>
         <viewModels:DefaultViewModel/>
     </UserControl.DataContext>
+    
    <UserControl.Resources>
        <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
            <view:ShowAllTournamentsView/>
        </DataTemplate>
+       <DataTemplate DataType="{x:Type viewModels:AddTournamentViewModel}">
+           <view:AddTournamentView/>
+       </DataTemplate>
     </UserControl.Resources>
+
     <Grid>
-        <StackPanel Background="#FF777B85">
-            <TextBox Text="{Binding Text}" IsReadOnly="True" Visibility="{Binding TextPanelVisibility}"></TextBox>
-            <ContentControl Content="{Binding TournamentView}" Padding="20" VerticalAlignment="Stretch"></ContentControl>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding ButtonPanelVisibility}">
-                <Button Command="{Binding CreateNewTournamentCommand}" Background="#FF1D4C65" Padding="5" Margin="5,5,10,5" Foreground="#FFCECECE" FontFamily="OCR A Extended" >New tournament</Button>
-                <Button Command="{Binding EditExistingTournamentCommand}" Visibility="{Binding EditButtonVisibility}" FontFamily="OCR A Extended" Padding="5" Margin="10,5,5,5">Edit tournament</Button>
-            </StackPanel>
-        </StackPanel>
-        <!--<TextBox VerticalAlignment="Bottom" Height="25" Text="{Binding FooterText}" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
     </Grid>
 </UserControl>

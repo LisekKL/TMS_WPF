@@ -40,8 +40,8 @@ namespace Tournament_Management_Software.Model
         public List<Contestant> GetAllContestants() => Contestants.ToList();
         public string GetTournamentDataString()
         {
-            return ("Tournament ID: " + TournamentId + "  | NAME = " + Name + " planned Start Date = " +
-                    StartDate.ToString() + " at location" + Location + "\nCurrent number of contestants = ");
+            return ("Tournament ID: " + TournamentId + "\nNAME = " + Name + "\nPlanned Start Date = " +
+                    StartDate.ToString() + "\nAt location" + Location + "\nCurrent number of contestants = " + Contestants.Count);
         }
     }
 }

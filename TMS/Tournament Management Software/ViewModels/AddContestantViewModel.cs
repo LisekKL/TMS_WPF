@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Enums;
-using Tournament_Management_Software.Helpers.Logger;
 using Tournament_Management_Software.Model;
 using static System.Double;
 
@@ -82,20 +77,23 @@ namespace Tournament_Management_Software.ViewModels
         public AddContestantViewModel(int tournamentId)
         {
             Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentId);
-            _contestant = new Contestant() {TournamentId = tournamentId};
+            _contestant = new Contestant {TournamentId = tournamentId};
         }
 
-        public AddContestantViewModel()
+        //public AddContestantViewModel()
+        //{
+        //    Messenger.Default.Register<ActiveTournamentId>(this, DoNothing);
+        //    _contestant = new Contestant();
+        //}
+
+        public void DoNothing(ActiveTournamentId action)
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, DoNothing);
-            _contestant = new Contestant();
+            
         }
-
-        public void DoNothing(ActiveTournamentId action) { }
 
         public void SetTournamentId(ActiveTournamentId action)
         {
-            TournamentId = action.TournamentId;
+            TournamentId = action.Message;
             RaisePropertyChangedEvent("TournamentId");
         }
         public void AddNewContestant()

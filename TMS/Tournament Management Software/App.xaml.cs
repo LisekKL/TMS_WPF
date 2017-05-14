@@ -16,15 +16,9 @@ namespace Tournament_Management_Software
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            using (var db = new TMSContext())
-            {
-                base.OnStartup(e);
-                var init = new TMSContextInitializer();
-                Database.SetInitializer(init);
-                init.InitializeDatabase(db);
-            }
-        }
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
+        //    Database.SetInitializer(new TMSContextInitializer());
+        //}
     }
 }

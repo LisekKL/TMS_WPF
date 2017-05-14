@@ -13,77 +13,71 @@ namespace Tournament_Management_Software.ViewModels
 {
     public class MainWindowViewModel : ObservableObject
     {
-        public ObservableCollection<MenuItem> NavigationMenu { get; set; } = new ObservableCollection<MenuItem>();
-        public ObservableCollection<string> ToolbarMenu { get; set; } = new ObservableCollection<string>();
-        public Visibility TournamentOptionsVisibility { get; set;} = Visibility.Collapsed;
-
-        public string OutputMessage { get; set; }
-
-        private object _currentView;
-        public object CurrentView { get { return _currentView; }  set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
-
         public MainWindowViewModel()
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentOptionsOnMessageReceived);
-            CurrentView = new DefaultViewModel();         
+            Messenger.Default.Register<ActiveTournamentId>(this, SetCurrentTournamentId);
+            Messenger.Default.Register<ChangeListView>(this, ChangeListViewContent);
+            Messenger.Default.Register<ChangeView>(this,ChangeViewContent);
+            InitiateNavigationBar();
+            SetHomeView();
         }
 
-        public string Title { get; set; } = "Tournament Management Software";
+        private int _currentTournamentId;
+        public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value;RaisePropertyChangedEvent("CurrentTournamentId"); } }
+        public static string Title { get; set; } = "Tournament Management Software";
 
-        public int CurrentTournamentId { get; set; }
+        public ObservableCollection<ButtonItem> ListView { get; set; }
+        public ObservableCollection<MenuItem> NavigationMenu { get; set; } = new ObservableCollection<MenuItem>();
 
-        public void SetTournamentOptionsOnMessageReceived(ActiveTournamentId action)
+        private object _currentView;
+        public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
+
+        public void InitiateNavigationBar()
         {
-            CurrentTournamentId = action.TournamentId;
-            TournamentOptionsVisibility = Visibility.Visible;
-            RaisePropertyChangedEvent("TournamentOptionsVisibility");
-            RaisePropertyChangedEvent("CurrentTournamentId");
+            NavigationMenu.Add(new MenuItem() {Header = "Home", Command = NavigateHomeCommand});
+            RaisePropertyChangedEvent("NavigationMenu");
         }
 
-        public ICommand ShowHomeViewCommand => new DelegateCommand(SetHomeView);
-        public ICommand ShowAddContestantViewCommand => new DelegateCommand(SetAddContestantView);
-        public ICommand ShowAllContestantsCommand => new DelegateCommand(SetAllContestantsView);
-        //In development
-        //public ICommand ShowAllDatabaseDataCommand => new DelegateCommand(SetExploreDatabase);
-        public ICommand ShowAddNewTournamentCommand => new DelegateCommand(AddNewTournament);
+        public ICommand NavigateHomeCommand => new DelegateCommand(SetHomeView);
         public ICommand ShowAllTournamentsCommand => new DelegateCommand(ShowAllTournaments);
+        public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
+        public ICommand GoToCurrentTournamentCommand => new DelegateCommand(GoToCurrentTournament);
 
         public void ShowAllTournaments()
         {
-            _currentView = new ShowAllTournamentsViewModel();
-            RaisePropertyChangedEvent("CurrentView");
+
         }
         public void AddNewTournament()
         {
-            _currentView = new AddTournamentViewModel();
-            RaisePropertyChangedEvent("CurrentView");
+
         }
-        public void SetExploreDatabase()
+        public void GoToCurrentTournament()
         {
-            _currentView = new ExploreDatabaseViewModel();
-            RaisePropertyChangedEvent("CurrentView");
-        }     
+
+        }
         public void SetHomeView()
         {
             _currentView = new DefaultViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }
-        public void SetAddContestantView()
-        {
 
-            if (CurrentTournamentId == 0)
-            {
-                OutputMessage = "NO TOURNAMENT SELECTED!\nSelect an existing tournament or add a new one";
-                RaisePropertyChangedEvent("OutputMessage");
-            }
-            else
-                CurrentView = new AddContestantViewModel(CurrentTournamentId);
-            RaisePropertyChangedEvent("CurrentView");
-        }
-        public void SetAllContestantsView()
+        public void SetCurrentTournamentId(ActiveTournamentId action)
         {
-            _currentView = new ShowAllContestantsViewModel(CurrentTournamentId);
+            CurrentTournamentId = action.Message;
+            RaisePropertyChangedEvent("CurrentTournamentId");
+        }
+
+        public void ChangeListViewContent(ChangeListView action)
+        {
+            ListView = action.Message;
+            RaisePropertyChangedEvent("ListView");
+        }
+
+        public void ChangeViewContent(ChangeView action)
+        {
+            _currentView = action.Message;
             RaisePropertyChangedEvent("CurrentView");
         }
+
     }
 }
