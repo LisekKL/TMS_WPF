@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
-using Tournament_Management_Software.Model;
+using Tournament_Management_Software.Helpers.Messages;
+using Tournament_Management_Software.ViewModels.Home;
 
 
 namespace Tournament_Management_Software.ViewModels
@@ -15,15 +12,12 @@ namespace Tournament_Management_Software.ViewModels
     {
         public MainWindowViewModel()
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetCurrentTournamentId);
-            Messenger.Default.Register<ChangeListView>(this, ChangeListViewContent);
-            Messenger.Default.Register<ChangeView>(this,ChangeViewContent);
             InitiateNavigationBar();
             SetHomeView();
         }
 
         private int _currentTournamentId;
-        public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value;RaisePropertyChangedEvent("CurrentTournamentId"); } }
+        public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value; RaisePropertyChangedEvent("CurrentTournamentId"); } }
         public static string Title { get; set; } = "Tournament Management Software";
 
         public ObservableCollection<ButtonItem> ListView { get; set; }
@@ -61,23 +55,6 @@ namespace Tournament_Management_Software.ViewModels
             RaisePropertyChangedEvent("CurrentView");
         }
 
-        public void SetCurrentTournamentId(ActiveTournamentId action)
-        {
-            CurrentTournamentId = action.Message;
-            RaisePropertyChangedEvent("CurrentTournamentId");
-        }
-
-        public void ChangeListViewContent(ChangeListView action)
-        {
-            ListView = action.Message;
-            RaisePropertyChangedEvent("ListView");
-        }
-
-        public void ChangeViewContent(ChangeView action)
-        {
-            _currentView = action.Message;
-            RaisePropertyChangedEvent("CurrentView");
-        }
 
     }
 }

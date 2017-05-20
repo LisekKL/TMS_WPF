@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
+using Tournament_Management_Software.ViewModels;
+using Tournament_Management_Software.ViewModels.Home;
 
 namespace Tournament_Management_Software.View
 {
@@ -23,6 +12,7 @@ namespace Tournament_Management_Software.View
         public DefaultView()
         {
             InitializeComponent();
+            DataContext = new DefaultViewModel();
         }
     }
 }

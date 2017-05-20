@@ -5,18 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
              xmlns:view="clr-namespace:Tournament_Management_Software.View"
+             xmlns:tournaments="clr-namespace:Tournament_Management_Software.ViewModels.Tournaments"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
-    <UserControl.DataContext>
-        <viewModels:DefaultViewModel/>
-    </UserControl.DataContext>
-    
-   <UserControl.Resources>
-       <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
+
+    <UserControl.Resources>
+       <DataTemplate DataType="{x:Type tournaments:ShowAllTournamentsViewModel}">
            <view:ShowAllTournamentsView/>
        </DataTemplate>
-       <DataTemplate DataType="{x:Type viewModels:AddTournamentViewModel}">
+       <DataTemplate DataType="{x:Type tournaments:AddTournamentViewModel}">
            <view:AddTournamentView/>
        </DataTemplate>
     </UserControl.Resources>
@@ -27,6 +24,8 @@
             <RowDefinition Height="2.5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
+        <TextBlock Text="{Binding ViewTitle}" HorizontalAlignment="Center"></TextBlock>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
     </Grid>

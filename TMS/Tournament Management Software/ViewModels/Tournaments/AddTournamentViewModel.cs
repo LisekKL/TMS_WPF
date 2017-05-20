@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Migrations;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
+using Tournament_Management_Software.Helpers.Messages;
 using Tournament_Management_Software.Model;
+using Tournament_Management_Software.ViewModels.Home;
 
-namespace Tournament_Management_Software.ViewModels
+namespace Tournament_Management_Software.ViewModels.Tournaments
 {
     public class AddTournamentViewModel : ObservableObject
     {

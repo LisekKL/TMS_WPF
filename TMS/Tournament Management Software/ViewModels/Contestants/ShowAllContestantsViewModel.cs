@@ -1,12 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
-using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Model;
 
-namespace Tournament_Management_Software.ViewModels
+namespace Tournament_Management_Software.ViewModels.Contestants
 {
     public class ShowAllContestantsViewModel : ObservableObject
     {

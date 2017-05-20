@@ -1,19 +1,18 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
-using Tournament_Management_Software.Helpers.Context;
-using Tournament_Management_Software.Model;
+using Tournament_Management_Software.Helpers.Messages;
+using Tournament_Management_Software.ViewModels.Tournaments;
 
-namespace Tournament_Management_Software.ViewModels
+namespace Tournament_Management_Software.ViewModels.Home
 {
     public class DefaultViewModel : ObservableObject
     {
         public ObservableCollection<ButtonItem> ListView { get; set; } = new ObservableCollection<ButtonItem>();
         public string ListViewTitle { get; set; } = "Tournaments";
+        public string ViewTitle { get; set; } = "SHOWING TOURNAMENTS";
 
         private int _currentTournamentId;
         public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value; RaisePropertyChangedEvent("CurrentTournamentId"); } }

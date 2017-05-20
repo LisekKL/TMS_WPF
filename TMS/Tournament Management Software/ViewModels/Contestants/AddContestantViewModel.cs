@@ -5,10 +5,10 @@ using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Enums;
+using Tournament_Management_Software.Helpers.Messages;
 using Tournament_Management_Software.Model;
-using static System.Double;
 
-namespace Tournament_Management_Software.ViewModels
+namespace Tournament_Management_Software.ViewModels.Contestants
 {
     public class AddContestantViewModel : ObservableObject
     {
@@ -30,12 +30,12 @@ namespace Tournament_Management_Software.ViewModels
         public ICommand AddNewContestantCommand => new DelegateCommand(AddNewContestant);
         public string TxtContestantWeight { get { return _contestant.Weight.ToString(); } set
             {
-                _contestant.Weight = Parse(value);
+                _contestant.Weight = Double.Parse(value);
                 RaisePropertyChangedEvent("Weight");
             } }
         public string TxtContestantHeight { get { return _contestant.Height.ToString(); } set
         {
-            _contestant.Height = Parse(value);
+            _contestant.Height = Double.Parse(value);
             RaisePropertyChangedEvent("Height");
         } }
         public string TxtContestantLastName

@@ -6,9 +6,7 @@
              xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
-    <UserControl.DataContext>
-        <viewModels:ShowAllContestantsViewModel/>
-    </UserControl.DataContext>
+    
     <DataGrid Background="LightGray" HorizontalAlignment="Stretch" ItemsSource="{Binding Contestants}" AutoGenerateColumns="False">
         <DataGrid.Columns>
             <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name"/>

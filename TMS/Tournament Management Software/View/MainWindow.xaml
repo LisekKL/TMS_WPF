@@ -1,22 +1,19 @@
-﻿<Window x:Class="Tournament_Management_Software.MainWindow"
+﻿<Window x:Class="Tournament_Management_Software.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
         xmlns:view="clr-namespace:Tournament_Management_Software.View"
+        xmlns:home="clr-namespace:Tournament_Management_Software.ViewModels.Home"
+        xmlns:tournaments="clr-namespace:Tournament_Management_Software.ViewModels.Tournaments"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
 
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel/>
-    </Window.DataContext>
-
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModels:DefaultViewModel}">
+        <DataTemplate DataType="{x:Type home:DefaultViewModel}">
             <view:DefaultView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModels:ShowAllTournamentsViewModel}">
+        <DataTemplate DataType="{x:Type tournaments:ShowAllTournamentsViewModel}">
             <view:ShowAllTournamentsView/>
         </DataTemplate>
         <!--<DataTemplate DataType="{x:Type viewModels:ContestantsViewModel}">
@@ -30,20 +27,26 @@
     <Grid Background="YellowGreen" HorizontalAlignment="Stretch" >
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Viewbox Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="30">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
-                <Button HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" Margin="0,0,50,0" Command="{Binding NavigateHomeCommand}">HOME</Button>
-                <TextBox HorizontalAlignment="Right" Text="ID:" IsReadOnly="True" Background="Transparent" FontSize="12" FontWeight="Bold" Foreground="Black"/>
-                <TextBox HorizontalAlignment="Right" Text="{Binding CurrentTournamentId}" IsReadOnly="True"/>
-            </StackPanel>
-        </Viewbox>
+            <Menu Grid.ColumnSpan="2" VerticalAlignment="Top" VerticalContentAlignment="Center">
+                <MenuItem Header="HOME" HorizontalAlignment="Left">
+                    <Button HorizontalAlignment="Left" Foreground="Black" FontWeight="Bold" Margin="0,0,50,0" Command="{Binding NavigateHomeCommand}">HOME</Button>
+                </MenuItem>
+                <MenuItem>
+                    <TextBox HorizontalAlignment="Right" Text="ID:" IsReadOnly="True" Background="Transparent" FontSize="12" FontWeight="Bold" Foreground="Black"/>
+                </MenuItem>
+                <MenuItem>
+                    <TextBox HorizontalAlignment="Right" Text="{Binding CurrentTournamentId}" IsReadOnly="True"/>
+
+                </MenuItem>
+
+            </Menu>
 
         <Viewbox Grid.Row="1" VerticalAlignment="Stretch" Margin="20">
             <StackPanel Background="Orange">

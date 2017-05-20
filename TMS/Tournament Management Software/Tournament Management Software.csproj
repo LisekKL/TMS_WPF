@@ -87,26 +87,28 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Helpers\ActiveTournamentId.cs" />
+    <Compile Include="Helpers\Messages\ActiveTournamentId.cs" />
     <Compile Include="Helpers\ButtonItem.cs" />
-    <Compile Include="Helpers\ChangeListView.cs" />
-    <Compile Include="Helpers\ChangeView.cs" />
+    <Compile Include="Helpers\Messages\ChangeListView.cs" />
+    <Compile Include="Helpers\Messages\ChangeView.cs" />
     <Compile Include="Helpers\Context\TMSContextInitializer.cs" />
     <Compile Include="Helpers\Context\TMSContext.cs" />
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\Enums\GenderEnum.cs" />
-    <Compile Include="Helpers\ObservableObject.cs" />
+    <Compile Include="Model\ObservableObject.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Model\Round.cs" />
     <Compile Include="Model\Tournament.cs" />
-    <Compile Include="ViewModels\CurrentTournamentViewModel.cs" />
-    <Compile Include="ViewModels\ShowAllContestantsViewModel.cs" />
-    <Compile Include="ViewModels\AddContestantViewModel.cs" />
-    <Compile Include="ViewModels\DefaultViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Contestants\ContestantsViewModel.cs" />
+    <Compile Include="ViewModels\Tournaments\CurrentTournamentViewModel.cs" />
+    <Compile Include="ViewModels\Contestants\ShowAllContestantsViewModel.cs" />
+    <Compile Include="ViewModels\Contestants\AddContestantViewModel.cs" />
+    <Compile Include="ViewModels\Home\DefaultViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\AddTournamentViewModel.cs" />
-    <Compile Include="ViewModels\ShowAllTournamentsViewModel.cs" />
+    <Compile Include="ViewModels\Tournaments\AddTournamentViewModel.cs" />
+    <Compile Include="ViewModels\Tournaments\ShowAllTournamentsViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\AddTournamentView.xaml.cs">
@@ -127,7 +129,7 @@
     <Compile Include="View\ShowAllTournamentsView.xaml.cs">
       <DependentUpon>ShowAllTournamentsView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -139,7 +141,7 @@
     <Compile Include="Model\Contestant.cs" />
     <Compile Include="Model\SingleMatch.cs" />
     <Compile Include="Model\WeightClass.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
