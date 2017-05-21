@@ -8,15 +8,14 @@ namespace Tournament_Management_Software.Model
         private static int _counter;
 
         public AgeClass()
-        {
-            ++_counter;
-            AgeClassId = _counter;
+        {          
+            AgeClassId = ++_counter;
         }
         public int AgeClassId { get; set; }
         public string AgeClassName { get; set; }
         public int MinYear { get; set; }
-        public int MaxYear { get; set; }
-        public bool IsNoGenderDifference { get; set; } = false;
+        public int MaxYear { get; set; } = DateTime.Now.Year;
+        public bool IsGenderDistinguishable { get; set; } = true;
 
         public virtual ObservableCollection<WeightClass> WeightClasses { get; set; }
         public virtual ObservableCollection<Round> Rounds { get; set; }

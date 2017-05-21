@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Tournament_Management_Software.Model
 {
     public class Round
     {
-        private static int _counter;
+        //private static int _counter;
 
         public Round()
         {
-            ++_counter;
-            RoundId = _counter;
+            //  RoundId = ++_counter;
         }
         public int RoundId { get; set; }
 

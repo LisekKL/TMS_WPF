@@ -11,7 +11,6 @@ namespace Tournament_Management_Software.View
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();

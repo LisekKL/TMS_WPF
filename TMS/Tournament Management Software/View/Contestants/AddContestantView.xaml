@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Tournament_Management_Software.View.Contestants.AddContestantView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid x:Name="CustomerEdit" Background="#FFB0B0B0" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Name="LblFirstName" Foreground="#FF060606" FontWeight="Bold" VerticalContentAlignment="Center" VerticalAlignment="Center">First Name</Label>
+        <TextBox Grid.Column="1" Text="{Binding TxtContestantFirstName, Mode=TwoWay}" Margin="2"></TextBox>
+
+        <Label Name="LblLastName" Grid.Row="1" FontWeight="Bold">Last Name</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding TxtContestantLastName, Mode=TwoWay}" Margin="2"></TextBox>
+
+        <Label Name="LblDateOfBirth"  Grid.Row="2" FontWeight="Bold">Date of birth</Label>
+        <DatePicker x:Name="DtPicker" Grid.Column="1" Grid.Row="2" FirstDayOfWeek="Monday" Text="DATE" SelectedDate="{Binding DtPickerDateOfBirth}" Margin="2"/>
+
+        <Label Name="LblHeight" Grid.Row="3" FontWeight="Bold">Height</Label>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding TxtContestantHeight, Mode=TwoWay}" Margin="2"></TextBox>
+
+        <Label Name="LblWeight" Grid.Row="4" FontWeight="Bold">Weight</Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding TxtContestantWeight, Mode=TwoWay}" Margin="2"></TextBox>
+
+        <Label Name="GenderRadioButton" Grid.Row="5" UseLayoutRounding="False" FontWeight="Bold">Gender RadioButton</Label>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <RadioButton x:Name="Male" Content="{Binding LblGenderMale}" IsChecked="{Binding IsMale}" HorizontalAlignment="Center"  Margin="2" VerticalAlignment="Center" FontFamily="Segoe UI Black" VerticalContentAlignment="Center" />
+            <RadioButton x:Name="Female" Content="{Binding LblGenderFemale}" HorizontalAlignment="Center" Margin="2" VerticalAlignment="Center" FontFamily="Segoe UI Black" VerticalContentAlignment="Center"/>
+        </StackPanel>
+        
+        <TextBlock Grid.Row="6" Text="Tournament ID" FontWeight="Bold"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding TournamentId}"/>
+
+        <Button Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Command="{Binding AddNewContestantCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="EditButton"  Padding="10" Background="#FF0B2643" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Segoe Print" Foreground="#FFEAEAEA">REGISTER CONTESTANT</Button>
+    </Grid>
+</UserControl>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static System.String;
 
 namespace Tournament_Management_Software.Model
 {
@@ -11,8 +7,8 @@ namespace Tournament_Management_Software.Model
         public int PointsContestantA { get; set; } = 0;
         public int PointsContestantB { get; set; } = 0;
 
-        private char _separator = '-';
+        private const char Separator = '-';
 
-        public string GetTotalScoreString() => String.Concat(PointsContestantA + _separator + PointsContestantB);
+        public string GetTotalScoreString() => Concat(PointsContestantA + Separator + PointsContestantB);
     }
 }

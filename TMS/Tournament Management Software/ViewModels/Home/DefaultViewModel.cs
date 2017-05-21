@@ -10,62 +10,11 @@ namespace Tournament_Management_Software.ViewModels.Home
 {
     public class DefaultViewModel : ObservableObject
     {
-        public ObservableCollection<ButtonItem> ListView { get; set; } = new ObservableCollection<ButtonItem>();
-        public string ListViewTitle { get; set; } = "Tournaments";
-        public string ViewTitle { get; set; } = "SHOWING TOURNAMENTS";
-
-        private int _currentTournamentId;
-        public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value; RaisePropertyChangedEvent("CurrentTournamentId"); } }
-        public DefaultViewModel()
-        {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetCurrentTournamentId);
-            InitiateListView();
-            _currentView = new ShowAllTournamentsViewModel();
-          //  RaisePropertyChangedEvent("CurrentView");
-        }
-
-        public ICommand ShowAllTournamentsCommand => new DelegateCommand(ShowAllTournaments);
-        public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
-        public ICommand GoToCurrentTournamentCommand => new DelegateCommand(GoToCurrentTournament);
-
-        public void SetCurrentTournamentId(ActiveTournamentId action)
-        {
-            CurrentTournamentId = action.Message;
-            RaisePropertyChangedEvent("CurrentTournamentId");
-        }
-        public void ShowAllTournaments()
-        {
-            CurrentView = new ShowAllTournamentsViewModel();
-            Messenger.Default.Send(new ChangeView() {Message = _currentView});
-            RaisePropertyChangedEvent("CurrentView");
-        }
-        public void AddNewTournament()
-        {
-            CurrentView = new AddTournamentViewModel();
-            RaisePropertyChangedEvent("CurrentView");
-        }
-        public void GoToCurrentTournament()
-        {
-            if (_currentTournamentId > 0)
-                CurrentView = new CurrentTournamentViewModel(_currentTournamentId);
-            else
-            {
-                MessageBox.Show("Nie wybrano turnieju lub turniej nie poprawny!");
-            }
-            RaisePropertyChangedEvent("CurrentView");
-        }
-
-        public void InitiateListView()
-        {
-            ListView.Add(new ButtonItem() {Label = "All Tournaments", Command = ShowAllTournamentsCommand});
-            ListView.Add(new ButtonItem() {Label = "Add new tournament", Command = AddNewTournamentCommand});
-            ListView.Add(new ButtonItem() {Label = "Current Tournament", Command = GoToCurrentTournamentCommand});
-            RaisePropertyChangedEvent("ListView");
-            Messenger.Default.Send(new ChangeListView() {Message = ListView});
-        }
+        public string ViewTitle { get; set; } = "DEFAULT VIEW";
+        public ObservableCollection<ButtonItem> ListView { get; set; }
+        public string ListViewTitle { get; set; } = "HOME MENU";
 
         private object _currentView;
-
         public object CurrentView
         {
             get { return _currentView; }
@@ -74,6 +23,24 @@ namespace Tournament_Management_Software.ViewModels.Home
                 _currentView = value;
                 RaisePropertyChangedEvent("CurrentView");
             }
+        }
+
+        public DefaultViewModel()
+        {
+            InitiateListView();
+            // _currentView = new ShowAllTournamentsViewModel();
+            //  RaisePropertyChangedEvent("ListView");
+        }
+
+        public void InitiateListView()
+        {
+            ListView = new ObservableCollection<ButtonItem>()
+            {
+                new ButtonItem() {Label = "Home"},
+                new ButtonItem() {Label = "Exit"}
+            };
+            RaisePropertyChangedEvent("ListView");
+            Messenger.Default.Send(new ChangeListView() {Message = ListView, Title = "MAIN MENU"});
         }
     }
 }

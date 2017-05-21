@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Tournament_Management_Software.View.Tournaments.ShowAllTournamentsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tournament_Management_Software.View"
+             xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="500">
+    
+    <Grid HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Show All Tournaments" VerticalAlignment="Center"/>
+        <CheckBox Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding FilterShowAll}"/>
+
+        <TextBlock Grid.Row="1" Text="Show Open Tournaments" VerticalAlignment="Center"/>
+        <CheckBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding FilterShowOpen}"/>
+
+        <TextBlock Grid.Row="2" Text="Show Tournament History" VerticalAlignment="Center"/>
+        <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding FilterShowHistory}"/>
+
+        <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" HorizontalContentAlignment="Center" ItemsSource="{Binding Tournaments}" SelectedItem="{Binding CurrentTournament}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Center" MinColumnWidth="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding TournamentId}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Tournament Name"/>
+                <DataGridTextColumn Binding="{Binding Location}" Header="Location"/>
+                <DataGridTextColumn Binding="{Binding Info}" Header="Information"/>
+                <DataGridTextColumn Binding="{Binding Contestants.Count}" Header="Contestant Amount"/>
+                <DataGridTextColumn Binding="{Binding StartDate}" Header="Start Date"/>
+                <DataGridTextColumn Binding="{Binding EndDate}" Header="End Date"/>
+                <DataGridTextColumn Binding="{Binding Rounds.Count}" Header="Round Amount"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,8 +1,11 @@
-﻿C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\App.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Contestants\ContestantView.xaml;;
 FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\MainWindow.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\AddTournamentView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\ShowAllContestantsView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\DefaultView.xaml;;
-FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\ShowAllTournamentsView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Tournaments\CurrentTournamentView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Contestants\ShowAllContestantsView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Tournaments\ShowAllTournamentsView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Tournaments\TournamentView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Rounds\Categories\CategoryView.xaml;;
+FC:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\View\Rounds\Matches\MatchView.xaml;;
 

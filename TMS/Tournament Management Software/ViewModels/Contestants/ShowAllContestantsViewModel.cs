@@ -20,11 +20,6 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             Contestants = new ObservableCollection<Contestant>(queryContestantsInTournament);
             RaisePropertyChangedEvent("Contestants");
         }
-
-        public ShowAllContestantsViewModel()
-        {
-            //throw new System.NotImplementedException();
-        }
     }
 }
 

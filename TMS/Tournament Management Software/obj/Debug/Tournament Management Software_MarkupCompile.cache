@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\App.xaml
-7631832034
+18659961942
 
-401852757163
+61-1818767536
 74-49805806
-View\MainWindow.xaml;View\AddTournamentView.xaml;View\CurrentTournamentView.xaml;View\ShowAllContestantsView.xaml;View\AddContestantView.xaml;View\DefaultView.xaml;View\ShowAllTournamentsView.xaml;
+View\Rounds\Categories\AgeClasses\AddAgeClassView.xaml;View\Rounds\Categories\AgeClasses\AgeClassView.xaml;View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.xaml;View\Rounds\Categories\CategoryView.xaml;View\Rounds\Categories\WeightClasses\AddWeightClassView.xaml;View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.xaml;View\Rounds\Categories\WeightClasses\WeightClassView.xaml;View\Contestants\ContestantView.xaml;View\MainWindow.xaml;View\NavigationMenuView.xaml;View\Rounds\Matches\MatchView.xaml;View\Tournaments\AddTournamentView.xaml;View\Tournaments\CurrentTournamentView.xaml;View\Contestants\ShowAllContestantsView.xaml;View\Contestants\AddContestantView.xaml;View\Home\DefaultView.xaml;View\Tournaments\ShowAllTournamentsView.xaml;View\Tournaments\TournamentView.xaml;
 
 False
 

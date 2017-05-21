@@ -20,7 +20,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         public string OutputMessage { get { return _outputMessage; } set { _outputMessage = value; RaisePropertyChangedEvent("OutputMessage");} }     
         public string TournamentName { get { return _tournament.Name; } set { _tournament.Name = value; RaisePropertyChangedEvent("TournamentName"); } }
         public string Location { get { return _tournament.Location; } set { _tournament.Location = value; RaisePropertyChangedEvent("Location"); } }
-        public string Information { get { return _tournament.Info; } set { _tournament.Info = value; RaisePropertyChangedEvent("Information"); } }
+        public string Information { get { return _tournament.Information; } set { _tournament.Information = value; RaisePropertyChangedEvent("Information"); } }
         public string TournamentId { get { return _tournament.TournamentId.ToString(); } set { _tournament.TournamentId = Int32.Parse(value); RaisePropertyChangedEvent("TournamentId");} }
 
         public string TxtDateTime { get; set; } = DateTime.Now.ToShortDateString();
@@ -37,8 +37,10 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             try
             {
                 TMSContext context = new TMSContext();
+                var query = (from t in context.Tournaments where t.TournamentId == _tournament.TournamentId select t)
+                    .ToList();
                 //TODO: VALIDATION
-                if (context.Tournaments.Any(t => t.TournamentId == _tournament.TournamentId))
+                if (query.Count >= 1)
                 {
                     OutputMessage = "This tournament already exists in database!";
                     MessageBox.Show(OutputMessage);

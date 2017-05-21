@@ -8,8 +8,7 @@ namespace Tournament_Management_Software.Model
 
         public WeightClass()
         {
-            ++_counter;
-            WeightClassId = _counter;
+            WeightClassId = ++_counter;
         }
         public int WeightClassId { get; set; }
         public string WeightClassName { get; set; }

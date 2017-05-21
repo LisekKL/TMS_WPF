@@ -13,7 +13,6 @@ namespace Tournament_Management_Software.ViewModels.Contestants
     public class AddContestantViewModel : ObservableObject
     {
         private Contestant _contestant;
-        public Contestant Contestant { get { return _contestant; } set { _contestant = value; RaisePropertyChangedEvent("Contestant"); } }
 
         public GenderEnum Gender { get { return _contestant.Gender; } set { _contestant.Gender = value; RaisePropertyChangedEvent("Gender"); } }
         public string TxtContestantFirstName
@@ -30,13 +29,19 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         public ICommand AddNewContestantCommand => new DelegateCommand(AddNewContestant);
         public string TxtContestantWeight { get { return _contestant.Weight.ToString(); } set
             {
-                _contestant.Weight = Double.Parse(value);
-                RaisePropertyChangedEvent("Weight");
+                if (value != null && !value.Equals(""))
+                {
+                    _contestant.Weight = Double.Parse(value);
+                    RaisePropertyChangedEvent("Weight");
+                }
             } }
         public string TxtContestantHeight { get { return _contestant.Height.ToString(); } set
         {
-            _contestant.Height = Double.Parse(value);
-            RaisePropertyChangedEvent("Height");
+            if (value != null && !value.Equals(""))
+            {
+                _contestant.Height = Double.Parse(value);
+                RaisePropertyChangedEvent("Height");
+            }
         } }
         public string TxtContestantLastName
         {
@@ -45,18 +50,6 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             {
                 _contestant.LastName = value;
                 RaisePropertyChangedEvent("ContestantLastName");
-            }
-        }
-        public string TxtDateOfBirth
-        {
-            get
-            {
-                return _contestant.DateOfBirth.ToShortDateString();
-            }
-            set
-            {
-                _contestant.DateOfBirth = DateTime.Parse(value);
-                RaisePropertyChangedEvent("DateOfBirth");
             }
         }
         public DateTime DtPickerDateOfBirth { get { return _contestant.DateOfBirth; } set { _contestant.DateOfBirth = value; RaisePropertyChangedEvent("DateOfBirth"); } }
@@ -73,29 +66,14 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         public string LblGenderFemale => "Female";
         public string LblGenderMale => "Male";
 
-        public static int TournamentId { get; set; }
+
+        public int TournamentId => _contestant.TournamentId;
+
         public AddContestantViewModel(int tournamentId)
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentId);
             _contestant = new Contestant {TournamentId = tournamentId};
         }
 
-        //public AddContestantViewModel()
-        //{
-        //    Messenger.Default.Register<ActiveTournamentId>(this, DoNothing);
-        //    _contestant = new Contestant();
-        //}
-
-        public void DoNothing(ActiveTournamentId action)
-        {
-            
-        }
-
-        public void SetTournamentId(ActiveTournamentId action)
-        {
-            TournamentId = action.Message;
-            RaisePropertyChangedEvent("TournamentId");
-        }
         public void AddNewContestant()
         {           
             try
@@ -125,7 +103,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             TxtContestantLastName = String.Empty;
             TxtContestantHeight = String.Empty;
             TxtContestantWeight = String.Empty;
-            TxtDateOfBirth = String.Empty;
+            DtPickerDateOfBirth = DateTime.Now;
             _contestant = new Contestant();
             RaisePropertyChangedEvent("Contestant");
         }

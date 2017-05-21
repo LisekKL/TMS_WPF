@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
@@ -8,13 +9,17 @@ using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Messages;
 using Tournament_Management_Software.Model;
 using Tournament_Management_Software.ViewModels.Contestants;
+using Tournament_Management_Software.ViewModels.Rounds;
 
 namespace Tournament_Management_Software.ViewModels.Tournaments
 {
     public class CurrentTournamentViewModel : ObservableObject
     {
         private readonly Tournament _tournament;
-        public string OutputMessage { get; set; }
+        public Tournament CurrentTournament => _tournament;
+
+        public string ViewTitle { get; set; } = "CURRENT TOURNAMENT";
+
         public ObservableCollection<ButtonItem> ListView { get; set; } = new ObservableCollection<ButtonItem>();
         public CurrentTournamentViewModel(int tournamentId)
         {
@@ -22,38 +27,38 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             _tournament = FindTournamentById(tournamentId);
             if (_tournament == null)
             {
-                OutputMessage = "Nie znaleziono turnieju o ID " + tournamentId;
+                MessageBox.Show("Nie znaleziono turnieju o ID " + tournamentId);
+                Messenger.Default.Send(new ChangeView() {Message = new TournamentViewModel()});
             }
-            else
-            {
-                OutputMessage = _tournament.GetTournamentDataString();
-            }
-            _currentView = OutputMessage;
-            RaisePropertyChangedEvent("CurrentView");
+           // var context = new TMSContext();
+            _roundsView = new RoundViewModel(tournamentId);
+            RaisePropertyChangedEvent("CurrentTournament");
         }
 
-        private object _currentView;
-        public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
+        private object _roundsView;
+        public object RoundsView { get { return _roundsView; } set { _roundsView = value; RaisePropertyChangedEvent("RoundsView"); } }
 
         public void InitiateListView()
         {
             ListView.Add(new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand});
-            ListView.Add(new ButtonItem() {Label = "Categories", Command = GoToCategoriesCommand});
+            ListView.Add(new ButtonItem() {Label = "Rounds", Command = GoToRoundsCommand});
             RaisePropertyChangedEvent("ListView");
             Messenger.Default.Send(new ChangeListView() { Message = ListView });
         }
         public ICommand GoToContestantsCommand => new DelegateCommand(GoToContestants);
-        public ICommand GoToCategoriesCommand => new DelegateCommand(GoToCategories);
-
-        public void GoToCategories()
-        {
-            
-        }
         public void GoToContestants()
         {
-            _currentView = new ContestantsViewModel(_tournament.TournamentId);
+            Messenger.Default.Send(new ChangeView() {Message = new ContestantViewModel(_tournament.TournamentId)});
             RaisePropertyChangedEvent("CurrentView");
         }
+
+        public ICommand GoToRoundsCommand => new DelegateCommand(GoToRounds);
+        public void GoToRounds()
+        {
+            Messenger.Default.Send(new ChangeView() { Message = new RoundViewModel(_tournament.TournamentId)});
+            RaisePropertyChangedEvent("CurrentView");
+        }
+
         public Tournament FindTournamentById(int id)
         {
             try

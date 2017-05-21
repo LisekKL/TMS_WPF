@@ -6,7 +6,7 @@ using Tournament_Management_Software.Model;
 
 namespace Tournament_Management_Software.Helpers.Context
 {
-    public class TMSContextInitializer : DropCreateDatabaseIfModelChanges<TMSContext>
+    public class TMSContextInitializer : DropCreateDatabaseAlways<TMSContext>
     {
         //public override void InitializeDatabase(TMSContext context)
         //{
@@ -24,7 +24,7 @@ namespace Tournament_Management_Software.Helpers.Context
                     Name = "Tournament #1",
                     Location = "Lublin",
                     StartDate = DateTime.Parse("2017-06-20"),
-                    Info = "Testing purposes"
+                    Information = "Testing purposes"
                 }
             };
             context.Tournaments.AddRange(tournaments);

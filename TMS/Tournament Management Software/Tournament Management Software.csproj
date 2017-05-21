@@ -14,6 +14,21 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -95,13 +110,21 @@
     <Compile Include="Helpers\Context\TMSContext.cs" />
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\Enums\GenderEnum.cs" />
-    <Compile Include="Model\ObservableObject.cs" />
+    <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Model\Round.cs" />
     <Compile Include="Model\Tournament.cs" />
-    <Compile Include="ViewModels\Categories\CategoriesViewModel.cs" />
-    <Compile Include="ViewModels\Contestants\ContestantsViewModel.cs" />
+    <Compile Include="ViewModels\Contestants\CurrentTournamentViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Categories\AgeClasses\AddAgeClassViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Categories\AgeClasses\AgeClassViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Categories\WeightClasses\WeightClassViewModel.cs" />
+    <Compile Include="ViewModels\Contestants\ContestantViewModel.cs" />
+    <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Matches\MatchViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\Matches\ShowAllMatchesViewModel.cs" />
+    <Compile Include="ViewModels\Rounds\RoundViewModel.cs" />
     <Compile Include="ViewModels\Tournaments\CurrentTournamentViewModel.cs" />
     <Compile Include="ViewModels\Contestants\ShowAllContestantsViewModel.cs" />
     <Compile Include="ViewModels\Contestants\AddContestantViewModel.cs" />
@@ -109,26 +132,93 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Tournaments\AddTournamentViewModel.cs" />
     <Compile Include="ViewModels\Tournaments\ShowAllTournamentsViewModel.cs" />
+    <Compile Include="ViewModels\Tournaments\TournamentViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\AddTournamentView.xaml.cs">
+    <Compile Include="View\Rounds\Categories\AgeClasses\AddAgeClassView.xaml.cs">
+      <DependentUpon>AddAgeClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\AgeClasses\AgeClassView.xaml.cs">
+      <DependentUpon>AgeClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.xaml.cs">
+      <DependentUpon>ShowAllAgeClassesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\WeightClasses\AddWeightClassView.xaml.cs">
+      <DependentUpon>AddWeightClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.xaml.cs">
+      <DependentUpon>ShowAllWeightClassesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Categories\WeightClasses\WeightClassView.xaml.cs">
+      <DependentUpon>WeightClassView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Contestants\ContestantView.xaml.cs">
+      <DependentUpon>ContestantView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NavigationMenuView.xaml.cs">
+      <DependentUpon>NavigationMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\Matches\MatchView.xaml.cs">
+      <DependentUpon>MatchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Rounds\RoundViewModel.cs" />
+    <Compile Include="View\Tournaments\AddTournamentView.xaml.cs">
       <DependentUpon>AddTournamentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CurrentTournamentView.xaml.cs">
+    <Compile Include="View\Tournaments\CurrentTournamentView.xaml.cs">
       <DependentUpon>CurrentTournamentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ShowAllContestantsView.xaml.cs">
+    <Compile Include="View\Contestants\ShowAllContestantsView.xaml.cs">
       <DependentUpon>ShowAllContestantsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddContestantView.xaml.cs">
+    <Compile Include="View\Contestants\AddContestantView.xaml.cs">
       <DependentUpon>AddContestantView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DefaultView.xaml.cs">
+    <Compile Include="View\Home\DefaultView.xaml.cs">
       <DependentUpon>DefaultView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ShowAllTournamentsView.xaml.cs">
+    <Compile Include="View\Tournaments\ShowAllTournamentsView.xaml.cs">
       <DependentUpon>ShowAllTournamentsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Tournaments\TournamentView.xaml.cs">
+      <DependentUpon>TournamentView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Rounds\Categories\AgeClasses\AddAgeClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\AgeClasses\AgeClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\WeightClasses\AddWeightClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Rounds\Categories\WeightClasses\WeightClassView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Contestants\ContestantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,27 +235,39 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\AddTournamentView.xaml">
+    <Page Include="View\NavigationMenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CurrentTournamentView.xaml">
+    <Page Include="View\Rounds\Matches\MatchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ShowAllContestantsView.xaml">
+    <Page Include="View\Tournaments\AddTournamentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AddContestantView.xaml">
+    <Page Include="View\Tournaments\CurrentTournamentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DefaultView.xaml">
+    <Page Include="View\Contestants\ShowAllContestantsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ShowAllTournamentsView.xaml">
+    <Page Include="View\Contestants\AddContestantView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home\DefaultView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tournaments\ShowAllTournamentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tournaments\TournamentView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +301,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
