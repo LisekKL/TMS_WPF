@@ -8,8 +8,8 @@ using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Messages;
 using Tournament_Management_Software.Model;
+using Tournament_Management_Software.ViewModels.AgeClasses;
 using Tournament_Management_Software.ViewModels.Contestants;
-using Tournament_Management_Software.ViewModels.Rounds;
 
 namespace Tournament_Management_Software.ViewModels.Tournaments
 {
@@ -31,17 +31,17 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
                 Messenger.Default.Send(new ChangeView() {Message = new TournamentViewModel()});
             }
            // var context = new TMSContext();
-            _roundsView = new RoundViewModel(tournamentId);
+           // _roundsView = new RoundViewModel(tournamentId);
             RaisePropertyChangedEvent("CurrentTournament");
         }
 
-        private object _roundsView;
-        public object RoundsView { get { return _roundsView; } set { _roundsView = value; RaisePropertyChangedEvent("RoundsView"); } }
+        private object _ageClassesView;
+        public object AgeClassesView { get { return _ageClassesView; } set { _ageClassesView = value; RaisePropertyChangedEvent("AgeClassesView"); } }
 
         public void InitiateListView()
         {
             ListView.Add(new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand});
-            ListView.Add(new ButtonItem() {Label = "Rounds", Command = GoToRoundsCommand});
+            ListView.Add(new ButtonItem() {Label = "AgeClasses", Command = GoToAgeClassesCommand});
             RaisePropertyChangedEvent("ListView");
             Messenger.Default.Send(new ChangeListView() { Message = ListView });
         }
@@ -52,10 +52,10 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             RaisePropertyChangedEvent("CurrentView");
         }
 
-        public ICommand GoToRoundsCommand => new DelegateCommand(GoToRounds);
-        public void GoToRounds()
+        public ICommand GoToAgeClassesCommand => new DelegateCommand(GoToAgeClasses);
+        public void GoToAgeClasses()
         {
-            Messenger.Default.Send(new ChangeView() { Message = new RoundViewModel(_tournament.TournamentId)});
+            Messenger.Default.Send(new ChangeView() { Message = new AgeClassViewModel(_tournament.TournamentId)});
             RaisePropertyChangedEvent("CurrentView");
         }
 

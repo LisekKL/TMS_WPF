@@ -12,12 +12,13 @@ namespace Tournament_Management_Software.Helpers.Context
     {
         public TMSContext() : base("TMS_TST")
         {
-            Database.SetInitializer(new TMSContextInitializer());
+           // Database.SetInitializer(new TMSContextInitializer());
         }
+
         public DbSet<Contestant> Contestants { get; set; }
         public DbSet<SingleMatch> Matches { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<AgeClass> AgeClasses { get; set; }
         public DbSet<WeightClass> WeightClasses { get; set; }
-        public DbSet<Round> Rounds { get; set; }    }
+    }
 }

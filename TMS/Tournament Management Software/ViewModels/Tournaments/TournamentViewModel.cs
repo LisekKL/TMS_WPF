@@ -44,8 +44,8 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         public ICommand ShowAllTournamentsCommand => new DelegateCommand(ShowAllTournaments);
         public void ShowAllTournaments()
         {
-            _currentView = "LOADING";
-            RaisePropertyChangedEvent("CurrentView");
+           // _currentView = "LOADING";
+           // RaisePropertyChangedEvent("CurrentView");
             _currentView = new ShowAllTournamentsViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }

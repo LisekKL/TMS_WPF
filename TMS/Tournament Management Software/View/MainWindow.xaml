@@ -11,8 +11,8 @@
         xmlns:view="clr-namespace:Tournament_Management_Software.View"
         xmlns:contestants="clr-namespace:Tournament_Management_Software.ViewModels.Contestants"
         xmlns:contestantsView="clr-namespace:Tournament_Management_Software.View.Contestants"
-        xmlns:categoriesView="clr-namespace:Tournament_Management_Software.View.Rounds.Categories"
-        xmlns:categories="clr-namespace:Tournament_Management_Software.ViewModels.Rounds.Categories"
+        xmlns:ageClasses="clr-namespace:Tournament_Management_Software.ViewModels.AgeClasses"
+        xmlns:ageClassesView="clr-namespace:Tournament_Management_Software.View.AgeClasses"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
 
@@ -23,11 +23,14 @@
         <DataTemplate DataType="{x:Type tournaments:TournamentViewModel}">
             <tournamentsView:TournamentView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type tournaments:CurrentTournamentViewModel}">
+            <tournamentsView:CurrentTournamentView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ageClasses:AgeClassViewModel}">
+            <ageClassesView:AgeClassView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type contestants:ContestantViewModel}">
             <contestantsView:ContestantView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type categories:CategoryViewModel}">
-            <categoriesView:CategoryView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:NavigationMenuViewModel}">
             <view:NavigationMenuView/>
@@ -52,15 +55,15 @@
                 </LinearGradientBrush>
             </Menu.OpacityMask>
         </Menu>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding CurrentTournamentId}"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding CurrentTournamentId}" Margin="0,0,30,0"/>
 
         <Grid Grid.Row="1" VerticalAlignment="Top" Margin="30,80,30,30">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="NAVIGATE"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <ContentControl Grid.Row="1" Content="{Binding CurrentListView}"></ContentControl>
+            <TextBlock Text="NAVIGATE"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentListView}"/>
         </Grid>
 
         <Viewbox Grid.Column="1" Grid.Row="1" Margin="10">

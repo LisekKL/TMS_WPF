@@ -23,7 +23,7 @@
             <RowDefinition/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding ViewTitle}" Margin="10" TextAlignment="Center" Background="Teal" FontWeight="Bold"></TextBlock>
+        <TextBlock Text="{Binding ViewTitle}" Margin="10" TextAlignment="Center" Background="Teal" FontWeight="Bold"/>
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="20"/>
     </Grid>
 </UserControl>

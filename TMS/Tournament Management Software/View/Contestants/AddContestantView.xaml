@@ -7,41 +7,48 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <Grid x:Name="CustomerEdit" Background="#FFB0B0B0" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True">
+    <Grid x:Name="CustomerEdit" Margin="10" Background="#FFB0B0B0" VerticalAlignment="Stretch" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
+            <!--First Name-->
+            <RowDefinition/>
+            <!--Last Name-->
+            <RowDefinition/>
+            <!--Date of birth-->
+            <RowDefinition/>
+            <!--Height-->
+            <RowDefinition/>
+            <!--Weight-->
+            <RowDefinition/>
+            <!--Gender-->
+            <RowDefinition/>
+            <!--TournamentId-->
+            <RowDefinition Height="2*"/>
+            <!--Button-->
+
 
         </Grid.RowDefinitions>
 
-        <Label Name="LblFirstName" Foreground="#FF060606" FontWeight="Bold" VerticalContentAlignment="Center" VerticalAlignment="Center">First Name</Label>
+        <TextBlock Name="LblFirstName" Foreground="#FF060606" Text="First Name" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Text="{Binding TxtContestantFirstName, Mode=TwoWay}" Margin="2"></TextBox>
 
-        <Label Name="LblLastName" Grid.Row="1" FontWeight="Bold">Last Name</Label>
+        <TextBlock Grid.Row="1" Name="LblLastName" Foreground="#FF060606" Text="Last Name" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding TxtContestantLastName, Mode=TwoWay}" Margin="2"></TextBox>
 
-        <Label Name="LblDateOfBirth"  Grid.Row="2" FontWeight="Bold">Date of birth</Label>
-        <DatePicker x:Name="DtPicker" Grid.Column="1" Grid.Row="2" FirstDayOfWeek="Monday" Text="DATE" SelectedDate="{Binding DtPickerDateOfBirth}" Margin="2"/>
+        <TextBlock Grid.Row="2" Foreground="#FF060606" Text="Date of birth" FontWeight="Bold" VerticalAlignment="Center"/>
+        <DatePicker x:Name="DtPicker" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FirstDayOfWeek="Monday" Text="DATE" SelectedDate="{Binding DtPickerDateOfBirth}" Margin="2"/>
 
-        <Label Name="LblHeight" Grid.Row="3" FontWeight="Bold">Height</Label>
+        <TextBlock Grid.Row="3" Foreground="#FF060606" Text="Height" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding TxtContestantHeight, Mode=TwoWay}" Margin="2"></TextBox>
 
-        <Label Name="LblWeight" Grid.Row="4" FontWeight="Bold">Weight</Label>
+        <TextBlock Grid.Row="4" Foreground="#FF060606" Text="Weight" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding TxtContestantWeight, Mode=TwoWay}" Margin="2"></TextBox>
 
-        <Label Name="GenderRadioButton" Grid.Row="5" UseLayoutRounding="False" FontWeight="Bold">Gender RadioButton</Label>
+        <TextBlock Grid.Row="5" Foreground="#FF060606" Text="Gender" FontWeight="Bold" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" >
             <RadioButton x:Name="Male" Content="{Binding LblGenderMale}" IsChecked="{Binding IsMale}" HorizontalAlignment="Center"  Margin="2" VerticalAlignment="Center" FontFamily="Segoe UI Black" VerticalContentAlignment="Center" />
             <RadioButton x:Name="Female" Content="{Binding LblGenderFemale}" HorizontalAlignment="Center" Margin="2" VerticalAlignment="Center" FontFamily="Segoe UI Black" VerticalContentAlignment="Center"/>
@@ -50,6 +57,6 @@
         <TextBlock Grid.Row="6" Text="Tournament ID" FontWeight="Bold"/>
         <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding TournamentId}"/>
 
-        <Button Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Command="{Binding AddNewContestantCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="EditButton"  Padding="10" Background="#FF0B2643" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Segoe Print" Foreground="#FFEAEAEA">REGISTER CONTESTANT</Button>
+        <Button Grid.Row="7" Grid.ColumnSpan="2" Command="{Binding AddNewContestantCommand}" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalContentAlignment="Center" x:Name="EditButton"  Padding="5" Background="#FF0B2643" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Segoe Print" Foreground="#FFEAEAEA">REGISTER CONTESTANT</Button>
     </Grid>
 </UserControl>

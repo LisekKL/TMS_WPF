@@ -3,6 +3,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Messages;
+using Tournament_Management_Software.ViewModels.Home;
 
 namespace Tournament_Management_Software.ViewModels.Contestants
 {
@@ -30,8 +31,10 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         }
         public void AddNewContestant()
         {
-            if(_tournamentId != 0)
-                 _currentView = new AddContestantViewModel(_tournamentId);
+            if (_tournamentId != 0)
+            {
+                _currentView = new AddContestantViewModel(_tournamentId);
+            }
             RaisePropertyChangedEvent("CurrentView");
         }
 

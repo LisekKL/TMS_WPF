@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity.Migrations;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
@@ -66,7 +67,6 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         public string LblGenderFemale => "Female";
         public string LblGenderMale => "Male";
 
-
         public int TournamentId => _contestant.TournamentId;
 
         public AddContestantViewModel(int tournamentId)
@@ -83,18 +83,17 @@ namespace Tournament_Management_Software.ViewModels.Contestants
                 //TODO: VALIDATION
                 context.Contestants.AddOrUpdate(_contestant);
                 context.SaveChanges();
-                OutputMessage += "\nSuccessfully added a new contestant to the database!\n";
-                OutputMessage += _contestant.GetContestantDataString();
-                RaisePropertyChangedEvent("OutputMessage");
+                OutputMessage += "\nSuccessfully added a new contestant to the database!\n" + _contestant.GetContestantDataString();
+                MessageBox.Show(OutputMessage);
             }
             catch (Exception e)
             {
-                OutputMessage += "\nERROR adding new contestant to database!\nErrormessage = " + e.Message + "\n";
-                OutputMessage += _contestant.GetContestantDataString();
-                RaisePropertyChangedEvent("OutputMessage");
+                OutputMessage += "\nERROR adding new contestant to database!\nErrormessage = " + e.Message + "\n" + _contestant.GetContestantDataString();
+                MessageBox.Show(OutputMessage);
             }
             ClearData();
             RaisePropertyChangedEvent("Contestant");
+            Messenger.Default.Send(new ChangeView() {Message = new ContestantViewModel(TournamentId)});
         }
 
         public void ClearData()

@@ -5,11 +5,11 @@ namespace Tournament_Management_Software.Model
 {
     public class Tournament
     {
-       // private static int _counter;
+        private static int _counter;
 
         public Tournament()
         {
-            // TournamentId = ++_counter;
+            TournamentId = ++_counter;
         }
         public int TournamentId { get; set; }
         public string Name { get; set; }
@@ -19,12 +19,13 @@ namespace Tournament_Management_Software.Model
         public string Information { get; set; }
 
         public virtual ObservableCollection<Contestant> Contestants { get; set; }
-        public virtual ObservableCollection<Round> Rounds { get; set; }
+        public virtual ObservableCollection<AgeClass> AgeClasses { get; set; }
 
         public string GetTournamentDataString()
         {
+            int contAmount = Contestants?.Count ?? 0;
             return ("Tournament ID: " + TournamentId + "\nNAME = " + Name + "\nPlanned Start Date = " +
-                    StartDate.ToString() + "\nAt location" + Location + "\nCurrent number of contestants = " + Contestants.Count);
+                    StartDate + "\nAt location" + Location + "\nCurrent number of contestants = " + contAmount);
         }
     }
 }

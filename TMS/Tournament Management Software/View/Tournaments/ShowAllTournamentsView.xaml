@@ -30,7 +30,7 @@
         <TextBlock Grid.Row="2" Text="Show Tournament History" VerticalAlignment="Center"/>
         <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding FilterShowHistory}"/>
 
-        <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" HorizontalContentAlignment="Center" ItemsSource="{Binding Tournaments}" SelectedItem="{Binding CurrentTournament}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Center" MinColumnWidth="5">
+        <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" ItemsSource="{Binding Tournaments}" SelectedItem="{Binding CurrentTournament}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Center">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding TournamentId}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Tournament Name"/>

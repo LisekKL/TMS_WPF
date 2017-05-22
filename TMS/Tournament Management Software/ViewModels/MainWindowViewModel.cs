@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows.Forms;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Messages;
-using Tournament_Management_Software.ViewModels.Categories;
+using Tournament_Management_Software.ViewModels.AgeClasses;
 using Tournament_Management_Software.ViewModels.Contestants;
 using Tournament_Management_Software.ViewModels.Home;
-using Tournament_Management_Software.ViewModels.Rounds.Categories;
 using Tournament_Management_Software.ViewModels.Tournaments;
 using MenuItem = System.Windows.Controls.MenuItem;
 using MessageBox = System.Windows.MessageBox;
@@ -63,16 +61,35 @@ namespace Tournament_Management_Software.ViewModels
                     },
                     new MenuItem()
                     {
+                        Header = "Current Tournament",
+                        Command = NavigateToCurrentTournamentCommand
+                    },
+                    new MenuItem()
+                    {
                         Header = "Contestants",
                         Command = NavigateToContestantCommand
                     },
                     new MenuItem()
                     {
-                    Header = "Categories",
-                    Command = NavigateToCategoryCommand
+                    Header = "AgeClasses",
+                    Command = NavigateToAgeClassesCommand
                     }
                 };
             RaisePropertyChangedEvent("NavigationMenu");
+        }
+
+        public ICommand NavigateToCurrentTournamentCommand => new DelegateCommand(SetCurrentTournamentView);
+        public void SetCurrentTournamentView()
+        {
+            if (_currentTournamentId == 0)
+            {
+                MessageBox.Show("No Tournament selected!\nPlease select a tournament first to show its information!");
+            }
+            else
+            {
+                _currentView = new CurrentTournamentViewModel(_currentTournamentId);
+                RaisePropertyChangedEvent("CurrentView");
+            }
         }
 
         public ICommand NavigateHomeCommand => new DelegateCommand(SetHomeView);
@@ -103,8 +120,8 @@ namespace Tournament_Management_Software.ViewModels
             }
         }
 
-        public ICommand NavigateToCategoryCommand => new DelegateCommand(SetCategoryView);
-        public void SetCategoryView()
+        public ICommand NavigateToAgeClassesCommand => new DelegateCommand(SetAgeClassView);
+        public void SetAgeClassView()
         {
             if (_currentTournamentId == 0)
             {
@@ -112,7 +129,7 @@ namespace Tournament_Management_Software.ViewModels
             }
             else
             {
-                _currentView = new CategoryViewModel(_currentTournamentId);
+                _currentView = new AgeClassViewModel(_currentTournamentId);
                 RaisePropertyChangedEvent("CurrentView");
             }
         }

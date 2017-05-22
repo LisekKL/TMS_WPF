@@ -30,38 +30,6 @@ C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\AddAgeClassView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\AgeClassView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\CategoryView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\AddWeightClassView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\WeightClassView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\AddAgeClassView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\AgeClassView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\CategoryView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\AddWeightClassView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Categories\WeightClasses\WeightClassView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ContestantView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\MainWindow.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\CurrentTournamentView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\TournamentView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\App.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.cache
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.lref
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.pdb
@@ -82,11 +50,43 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AddAgeClassView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\ShowAllAgeClassesView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\AddWeightClassView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\ShowAllWeightClassesView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\WeightClassView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Matches\MatchView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AddAgeClassView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AgeClassView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\ShowAllAgeClassesView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\AddWeightClassView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\ShowAllWeightClassesView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\WeightClassView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ContestantView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\MainWindow.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Matches\MatchView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\CurrentTournamentView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\TournamentView.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\App.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.cache
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.lref
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\App.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AgeClassView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ContestantView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\MainWindow.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\CurrentTournamentView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\TournamentView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.g.resources
@@ -94,6 +94,3 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csproj.GenerateResource.Cache
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csprojResolveAssemblyReference.cache
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Matches\MatchView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Rounds\Matches\MatchView.baml

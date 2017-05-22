@@ -32,10 +32,10 @@ namespace Tournament_Management_Software.Helpers.Context
             //Initiate AgeClasses
             var ageClasses = new ObservableCollection<AgeClass>()
             {
-                new AgeClass() { AgeClassName = "Smurfs", MinYear = 2006, MaxYear = 2007},
-                new AgeClass() { AgeClassName = "Kids", MinYear = 2008, MaxYear = 2009},
-                new AgeClass() { AgeClassName = "Juniors", MinYear = 2010, MaxYear = 2011},
-                new AgeClass() { AgeClassName = "Freshmen", MinYear = 2012, MaxYear = 2013}
+                new AgeClass() { AgeClassName = "Smurfs", MinYear = 2006, MaxYear = 2007, TournamentId = 1},
+                new AgeClass() { AgeClassName = "Kids", MinYear = 2008, MaxYear = 2009, TournamentId = 1},
+                new AgeClass() { AgeClassName = "Juniors", MinYear = 2010, MaxYear = 2011, TournamentId = 1},
+                new AgeClass() { AgeClassName = "Freshmen", MinYear = 2012, MaxYear = 2013, TournamentId = 1}
             };
 
             context.AgeClasses.AddRange(ageClasses);

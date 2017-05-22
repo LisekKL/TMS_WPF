@@ -9,11 +9,11 @@ namespace Tournament_Management_Software.Model
 {
     public class Contestant : Person
     {
-       // private static int _counter;
+       private static int _counter;
 
         public Contestant()
         {
-            //ContestantId = ++_counter;
+            ContestantId = ++_counter;
         }
         public int ContestantId { get; set; }
 

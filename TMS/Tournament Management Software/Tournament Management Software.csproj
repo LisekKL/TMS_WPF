@@ -113,18 +113,15 @@
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Result.cs" />
-    <Compile Include="Model\Round.cs" />
     <Compile Include="Model\Tournament.cs" />
-    <Compile Include="ViewModels\Contestants\CurrentTournamentViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Categories\AgeClasses\AddAgeClassViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Categories\AgeClasses\AgeClassViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Categories\CategoryViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Categories\WeightClasses\WeightClassViewModel.cs" />
+    <Compile Include="ViewModels\AgeClasses\AddAgeClassViewModel.cs" />
+    <Compile Include="ViewModels\AgeClasses\AgeClassViewModel.cs" />
+    <Compile Include="ViewModels\AgeClasses\ShowAllAgeClassesViewModel.cs" />
+    <Compile Include="ViewModels\AgeClasses\WeightClasses\WeightClassViewModel.cs" />
     <Compile Include="ViewModels\Contestants\ContestantViewModel.cs" />
     <Compile Include="ViewModels\NavigationMenuViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Matches\MatchViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\Matches\ShowAllMatchesViewModel.cs" />
-    <Compile Include="ViewModels\Rounds\RoundViewModel.cs" />
+    <Compile Include="ViewModels\Matches\MatchViewModel.cs" />
+    <Compile Include="ViewModels\Matches\ShowAllMatchesViewModel.cs" />
     <Compile Include="ViewModels\Tournaments\CurrentTournamentViewModel.cs" />
     <Compile Include="ViewModels\Contestants\ShowAllContestantsViewModel.cs" />
     <Compile Include="ViewModels\Contestants\AddContestantViewModel.cs" />
@@ -135,25 +132,22 @@
     <Compile Include="ViewModels\Tournaments\TournamentViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\Rounds\Categories\AgeClasses\AddAgeClassView.xaml.cs">
+    <Compile Include="View\AgeClasses\AddAgeClassView.xaml.cs">
       <DependentUpon>AddAgeClassView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Categories\AgeClasses\AgeClassView.xaml.cs">
+    <Compile Include="View\AgeClasses\AgeClassView.xaml.cs">
       <DependentUpon>AgeClassView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.xaml.cs">
+    <Compile Include="View\AgeClasses\ShowAllAgeClassesView.xaml.cs">
       <DependentUpon>ShowAllAgeClassesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Categories\CategoryView.xaml.cs">
-      <DependentUpon>CategoryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Rounds\Categories\WeightClasses\AddWeightClassView.xaml.cs">
+    <Compile Include="View\AgeClasses\WeightClasses\AddWeightClassView.xaml.cs">
       <DependentUpon>AddWeightClassView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.xaml.cs">
+    <Compile Include="View\AgeClasses\WeightClasses\ShowAllWeightClassesView.xaml.cs">
       <DependentUpon>ShowAllWeightClassesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Categories\WeightClasses\WeightClassView.xaml.cs">
+    <Compile Include="View\AgeClasses\WeightClasses\WeightClassView.xaml.cs">
       <DependentUpon>WeightClassView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Contestants\ContestantView.xaml.cs">
@@ -162,10 +156,9 @@
     <Compile Include="View\NavigationMenuView.xaml.cs">
       <DependentUpon>NavigationMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\Matches\MatchView.xaml.cs">
+    <Compile Include="View\Matches\MatchView.xaml.cs">
       <DependentUpon>MatchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Rounds\RoundViewModel.cs" />
     <Compile Include="View\Tournaments\AddTournamentView.xaml.cs">
       <DependentUpon>AddTournamentView.xaml</DependentUpon>
     </Compile>
@@ -187,31 +180,27 @@
     <Compile Include="View\Tournaments\TournamentView.xaml.cs">
       <DependentUpon>TournamentView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Rounds\Categories\AgeClasses\AddAgeClassView.xaml">
+    <Page Include="View\AgeClasses\AddAgeClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Categories\AgeClasses\AgeClassView.xaml">
+    <Page Include="View\AgeClasses\AgeClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Categories\AgeClasses\ShowAllAgeClassesView.xaml">
+    <Page Include="View\AgeClasses\ShowAllAgeClassesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Categories\CategoryView.xaml">
+    <Page Include="View\AgeClasses\WeightClasses\AddWeightClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Categories\WeightClasses\AddWeightClassView.xaml">
+    <Page Include="View\AgeClasses\WeightClasses\ShowAllWeightClassesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Categories\WeightClasses\ShowAllWeightClassesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Rounds\Categories\WeightClasses\WeightClassView.xaml">
+    <Page Include="View\AgeClasses\WeightClasses\WeightClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,7 +228,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Rounds\Matches\MatchView.xaml">
+    <Page Include="View\Matches\MatchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

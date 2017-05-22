@@ -4,11 +4,12 @@ namespace Tournament_Management_Software.Model
 {
     public class SingleMatch
     {
-       // private static int _counter;
+        private static int _counter;
 
         public SingleMatch(int contA, int contB)
         {
-            //SingleMatchId = ++_counter;
+            SingleMatchId = ++_counter;
+            Result = new Result() {PointsContestantA = 0, PointsContestantB = 0};
             FirstContestantId = contA;
             SecondContestantId = contB;
         }
@@ -24,8 +25,8 @@ namespace Tournament_Management_Software.Model
         public int FirstContestantId { get; set; }
         public int SecondContestantId { get; set; }
 
-        public int RoundId { get; set; }
-        public virtual Round Round { get; set; }
+        public int TournamentId { get; set; }
+        public virtual Tournament Tournament { get; set; }
         
     }
 }

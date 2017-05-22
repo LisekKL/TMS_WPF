@@ -17,7 +17,10 @@ namespace Tournament_Management_Software.Model
         public int MaxYear { get; set; } = DateTime.Now.Year;
         public bool IsGenderDistinguishable { get; set; } = true;
 
+        public int TournamentId { get; set; }
+        public virtual Tournament Tournament { get; set; }
+
         public virtual ObservableCollection<WeightClass> WeightClasses { get; set; }
-        public virtual ObservableCollection<Round> Rounds { get; set; }
+        //public virtual ObservableCollection<Round> Rounds { get; set; }
     }
 }

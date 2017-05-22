@@ -61,7 +61,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
                 MessageBox.Show(OutputMessage);
             }
             CleanUp();
-            Messenger.Default.Send(new ChangeView() {Message = new DefaultViewModel()});
+            Messenger.Default.Send(new ChangeView() {Message = new TournamentViewModel()});
         }
 
         public void CleanUp()
