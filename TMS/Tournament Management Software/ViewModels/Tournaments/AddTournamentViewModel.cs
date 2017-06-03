@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,12 +18,14 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         private Tournament _tournament = new Tournament();
 
         private string _outputMessage;
-        public string OutputMessage { get { return _outputMessage; } set { _outputMessage = value; RaisePropertyChangedEvent("OutputMessage");} }     
+        public string OutputMessage { get { return _outputMessage; } set { _outputMessage = value; RaisePropertyChangedEvent("OutputMessage");} }    
+        [Required(ErrorMessage = "Proszę podać nazwę turnieju!")]
+        [MaxLength(50, ErrorMessage = "Nazwa turnieju jest za długa!")] 
         public string TournamentName { get { return _tournament.Name; } set { _tournament.Name = value; RaisePropertyChangedEvent("TournamentName"); } }
         public string Location { get { return _tournament.Location; } set { _tournament.Location = value; RaisePropertyChangedEvent("Location"); } }
         public string Information { get { return _tournament.Information; } set { _tournament.Information = value; RaisePropertyChangedEvent("Information"); } }
-        public string TournamentId { get { return _tournament.TournamentId.ToString(); } set { _tournament.TournamentId = Int32.Parse(value); RaisePropertyChangedEvent("TournamentId");} }
-
+        public string TournamentId { get { return _tournament.TournamentId.ToString(); } set { _tournament.TournamentId = int.Parse(value); RaisePropertyChangedEvent("TournamentId");} }
+        [Required(ErrorMessage = "Proszę podać planowany start turnieju!")]
         public string TxtDateTime { get; set; } = DateTime.Now.ToShortDateString();
         public DateTime? DtPickerStartDate
         {
@@ -61,13 +64,12 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
                 MessageBox.Show(OutputMessage);
             }
             CleanUp();
-            Messenger.Default.Send(new ChangeView() {Message = new TournamentViewModel()});
+            Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});
         }
 
         public void CleanUp()
         {
-            TournamentName = String.Empty;
-            
+            TournamentName = String.Empty;         
             Information = String.Empty;
             Location = String.Empty;
             TxtDateTime = DateTime.Now.ToShortDateString();

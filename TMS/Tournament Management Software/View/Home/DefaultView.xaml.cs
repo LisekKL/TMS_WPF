@@ -11,6 +11,7 @@ namespace Tournament_Management_Software.View.Home
         public DefaultView()
         {
             InitializeComponent();
+            DataContext = new DefaultViewModel();
         }
     }
 }

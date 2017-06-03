@@ -10,12 +10,12 @@
             <RowDefinition/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding NavigationMenuTitle}" TextAlignment="Center" Background="Black" Foreground="White" FontWeight="Bold" />
+        <TextBlock Text="{Binding NavigationMenuTitle}" TextAlignment="Center" Background="Black" Foreground="White" FontWeight="Bold" Margin="2" Padding="5"/>
         <StackPanel Grid.Row="1">
             <ItemsControl ItemsSource="{Binding ListView}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding Command}" Content="{Binding Label}"/>
+                        <Button Command="{Binding Command}" Content="{Binding Label}" Background="YellowGreen"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

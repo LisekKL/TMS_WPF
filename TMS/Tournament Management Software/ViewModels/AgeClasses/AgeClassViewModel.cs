@@ -29,7 +29,7 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses
                 new ButtonItem() {Label = "Add AgeClass", Command = AddAgeClassCommand},
                 new ButtonItem() {Label = "Go to WeightClasses", Command = GoToWeightClassesCommand}
             };
-            Messenger.Default.Send(new ChangeListView() {Message = ListView, Title = "AGE CLASSES"});
+            Messenger.Default.Send(new ChangeListView() {NavigationButtonsItems = ListView, NavigationTitle = "AGE CLASSES"});
             RaisePropertyChangedEvent("ListView");
         }
 

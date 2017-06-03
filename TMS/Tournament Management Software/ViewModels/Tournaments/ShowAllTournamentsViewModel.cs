@@ -13,28 +13,53 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         private ObservableCollection<Tournament> _tournaments;
         public ObservableCollection<Tournament> Tournaments { get { return _tournaments; } set { _tournaments = value; RaisePropertyChangedEvent("Tournaments"); } }
 
-        private bool _filterShowAll;
+        private readonly TMSContext _context = new TMSContext();
+
+        private bool _filterShowAll = true;
         private bool _filterShowHistory;
         private bool _filterShowOpen;
-        public bool FilterShowAll { get { return _filterShowAll; } set { _filterShowAll = value; GetTournamentsFromDatabase(); RaisePropertyChangedEvent("FilterShowAll"); } }
-        public bool FilterShowHistory { get { return _filterShowHistory; } set { _filterShowHistory = value; GetTournamentsFromDatabase(); RaisePropertyChangedEvent("FilterShowHistory"); } }
-        public bool FilterShowOpen { get { return _filterShowOpen; } set { _filterShowOpen = value; RaisePropertyChangedEvent("FilterShowOpen"); } }
+
+        public bool FilterShowAll
+        {
+            get { return _filterShowAll; }
+            set
+            {
+                _filterShowAll = value;
+                FilterTournaments();
+                RaisePropertyChangedEvent("FilterShowAll");
+            }
+        }
+        public bool FilterShowHistory
+        {
+            get { return _filterShowHistory; }
+            set
+            {
+                _filterShowHistory = value;
+                FilterTournaments();
+                RaisePropertyChangedEvent("FilterShowHistory");
+            }
+        }
+        public bool FilterShowOpen {
+            get { return _filterShowOpen; }
+            set
+            {
+                _filterShowOpen = value;
+                FilterTournaments();
+                RaisePropertyChangedEvent("FilterShowOpen");
+            }
+        }
 
         public ShowAllTournamentsViewModel()
         {
-            GetTournamentsFromDatabase();
+            _tournaments = new ObservableCollection<Tournament>((from t in _context.Tournaments select t).ToList());
+            RaisePropertyChangedEvent("Tournaments");
         }
-        public void GetTournamentsFromDatabase()
+        public void FilterTournaments()
         {
-            var context = new TMSContext();
             if(_filterShowHistory)
-                _tournaments = new ObservableCollection<Tournament>((from t in context.Tournaments where t.EndDate != null select t).ToList());
+                _tournaments = new ObservableCollection<Tournament>((from t in _tournaments where t.EndDate != null select t).ToList());
             else if(_filterShowOpen)
-                _tournaments = new ObservableCollection<Tournament>((from t in context.Tournaments where t.EndDate == null select t).ToList());
-            else
-            {
-                _tournaments = new ObservableCollection<Tournament>((from t in context.Tournaments select t).ToList());
-            }
+                _tournaments = new ObservableCollection<Tournament>((from t in _tournaments where t.EndDate == null select t).ToList());
             RaisePropertyChangedEvent("Tournaments");
         }
 

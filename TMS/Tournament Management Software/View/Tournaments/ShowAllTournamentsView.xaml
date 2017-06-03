@@ -2,12 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Tournament_Management_Software.View"
-             xmlns:viewModels="clr-namespace:Tournament_Management_Software.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:tournaments="clr-namespace:Tournament_Management_Software.ViewModels.Tournaments"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
-    
+
+    <UserControl.DataContext>
+        <tournaments:ShowAllTournamentsViewModel/>
+    </UserControl.DataContext>
+
     <Grid HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,16 +33,15 @@
         <TextBlock Grid.Row="2" Text="Show Tournament History" VerticalAlignment="Center"/>
         <CheckBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding FilterShowHistory}"/>
 
-        <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" ItemsSource="{Binding Tournaments}" SelectedItem="{Binding CurrentTournament}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Center">
+        <DataGrid Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" ItemsSource="{Binding Tournaments}" SelectedItem="{Binding CurrentTournament}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding TournamentId}" Header="ID"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Tournament Name"/>
                 <DataGridTextColumn Binding="{Binding Location}" Header="Location"/>
-                <DataGridTextColumn Binding="{Binding Info}" Header="Information"/>
+                <DataGridTextColumn Binding="{Binding Information}" Header="Information"/>
                 <DataGridTextColumn Binding="{Binding Contestants.Count}" Header="Contestant Amount"/>
                 <DataGridTextColumn Binding="{Binding StartDate}" Header="Start Date"/>
                 <DataGridTextColumn Binding="{Binding EndDate}" Header="End Date"/>
-                <DataGridTextColumn Binding="{Binding Rounds.Count}" Header="Round Amount"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

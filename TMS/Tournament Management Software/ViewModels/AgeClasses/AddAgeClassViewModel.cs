@@ -1,4 +1,8 @@
-﻿using Tournament_Management_Software.Helpers;
+﻿using System;
+using System.Linq;
+using System.Windows.Input;
+using Tournament_Management_Software.Helpers;
+using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Model;
 
 namespace Tournament_Management_Software.ViewModels.AgeClasses
@@ -6,6 +10,8 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses
     public class AddAgeClassViewModel : ObservableObject
     {
         private readonly AgeClass _ageClass;
+        private readonly TMSContext _context = new TMSContext();
+        public string OutputMessage { get; set; } = "";
 
         public AddAgeClassViewModel(int tournamentId)
         {
@@ -43,5 +49,24 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses
         }
 
         public int TournamentId => _ageClass.TournamentId;
+
+        public ICommand AddAgeClassCommand => new DelegateCommand(AddAgeClass);
+
+        public void AddAgeClass()
+        {
+            _context.AgeClasses.Add(_ageClass);
+        }
+
+        public int PerformDataValidation()
+        {
+            if (MinYear <= 2000)
+            {
+                
+            }
+            return 0;
+        }
+
+
+
     }
 }

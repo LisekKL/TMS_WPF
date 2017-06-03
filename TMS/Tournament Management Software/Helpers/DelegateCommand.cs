@@ -11,23 +11,18 @@ namespace Tournament_Management_Software.Helpers
         {
             _action = action;
         }
-
         public bool CanExecute(object parameter)
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
             _action();
         }
-
         public event EventHandler CanExecuteChanged;
         public void RaiseCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this,EventArgs.Empty);
         }
-
-
     }
 }

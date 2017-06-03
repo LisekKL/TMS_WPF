@@ -6,6 +6,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+         
+        <TextBlock Text="Age Class Name" FontWeight="Bold" VerticalAlignment="Center" Padding="2" Margin="2"/>
+        <TextBox Grid.Column="1"  Text="{Binding TxtName}" VerticalAlignment="Center" Padding="2" Margin="2"/>
+
+        <TextBlock Grid.Row="1" Text="MinYear" FontWeight="Bold" VerticalAlignment="Center" Padding="2" Margin="2"/>
+        <TextBox Grid.Row="1" Grid.Column="1"  Text="{Binding MinYear}" VerticalAlignment="Center" Padding="2" Margin="2"/>
+
+        <TextBlock Grid.Row="2" Text="MaxYear" FontWeight="Bold" VerticalAlignment="Center" Padding="2" Margin="2"/>
+        <TextBox Grid.Row="2" Grid.Column="1"  Text="{Binding MaxYear}" VerticalAlignment="Center" Padding="2" Margin="2"/>
+
+        <TextBlock Grid.Row="3" Text="Tournament ID" FontWeight="Bold" VerticalAlignment="Center" Padding="2" Margin="2"/>
+        <TextBox Grid.Row="3" Grid.Column="1"  Text="{Binding TournamentId, Mode=OneWay}" Background="Transparent" VerticalAlignment="Center" Padding="2" Margin="2" IsReadOnly="True"/>
+    
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Command="{Binding AddAgeClassCommand}" VerticalAlignment="Center" HorizontalAlignment="Center" Background="DarkRed" FontWeight="Bold" Foreground="Black" Padding="5">ADD AGE CLASS</Button>
+
     </Grid>
 </UserControl>

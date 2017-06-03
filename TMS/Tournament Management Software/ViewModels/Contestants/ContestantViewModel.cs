@@ -11,6 +11,8 @@ namespace Tournament_Management_Software.ViewModels.Contestants
     {
         private readonly int _tournamentId;
         public string ViewTitle { get; set; } = "CONTESTANT VIEW";
+        public string ImagePath => @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\register_banner.jpg";
+
         public ContestantViewModel(int tournamentId)
         {
             _tournamentId = tournamentId;
@@ -45,7 +47,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
                 new ButtonItem() {Label = "All contestants", Command = ShowAllContestantsCommand},
                 new ButtonItem() {Label = "Add new contestant", Command = AddNewContestantCommand}
             };
-            Messenger.Default.Send(new ChangeListView() {Title = "Contestants", Message = ListView});
+            Messenger.Default.Send(new ChangeListView() {NavigationTitle = "Contestants", NavigationButtonsItems = ListView});
             RaisePropertyChangedEvent("ListView");
         }
     }

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Tournament_Management_Software.Model
 {
-    public class AgeClass
+    public class AgeClass 
     {
         private static int _counter;
 

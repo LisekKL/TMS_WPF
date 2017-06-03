@@ -10,6 +10,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
     public class TournamentViewModel : ObservableObject
     {
         public string ViewTitle { get; set; } = "Tournament View";
+        public string ImagePath => @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\tournament banner.png";
 
         private object _currentView;
         public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
@@ -34,30 +35,36 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         {
             ListView = new ObservableCollection<ButtonItem>()
             {
+                new ButtonItem() {Label = "Home", Command = GoHomeCommand},
                 new ButtonItem() {Label = "All Tournaments", Command = ShowAllTournamentsCommand},
                 new ButtonItem() {Label = "Add new tournament", Command = AddNewTournamentCommand},
-                new ButtonItem() {Label = "Current Tournament", Command = GoToCurrentTournamentCommand}
+                new ButtonItem() {Label = "Current Tournament", Command = GoToCurrentTournamentCommand}, 
+                new ButtonItem() {Label = "Exit", Command = ExitCommand}
             };
             RaisePropertyChangedEvent("ListView");
-            Messenger.Default.Send(new ChangeListView() { Message = ListView, Title = "TOURNAMENTS"});
+            Messenger.Default.Send(new ChangeListView() { NavigationButtonsItems = ListView, NavigationTitle = "TOURNAMENTS"});
         }
+
+        public ICommand GoHomeCommand => new DelegateCommand(GoHome);
         public ICommand ShowAllTournamentsCommand => new DelegateCommand(ShowAllTournaments);
+        public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
+        public ICommand GoToCurrentTournamentCommand => new DelegateCommand(GoToCurrentTournament);
+        public ICommand ExitCommand => new DelegateCommand(Exit);
+
+        public void GoHome()
+        {
+            Messenger.Default.Send(new ChangeView() { ViewName = "Home" });
+        }
         public void ShowAllTournaments()
         {
-           // _currentView = "LOADING";
-           // RaisePropertyChangedEvent("CurrentView");
             _currentView = new ShowAllTournamentsViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
         public void AddNewTournament()
         {
             _currentView = new AddTournamentViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand GoToCurrentTournamentCommand => new DelegateCommand(GoToCurrentTournament);
         public void GoToCurrentTournament()
         {
             if (_currentTournamentId > 0)
@@ -68,6 +75,13 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             }
             RaisePropertyChangedEvent("CurrentView");
         }
-
+        public void Exit()
+        {
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Question", MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 }

@@ -11,8 +11,8 @@ namespace Tournament_Management_Software.ViewModels
         public string NavigationMenuTitle { get; set; }
         public NavigationMenuViewModel(ChangeListView action)
         {
-            _listView = action.Message;
-            NavigationMenuTitle = action.Title;
+            _listView = action.NavigationButtonsItems;
+            NavigationMenuTitle = action.NavigationTitle;
         }
     }
 }

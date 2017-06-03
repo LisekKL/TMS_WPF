@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations;
 using System.Windows;
 using System.Windows.Input;
@@ -13,9 +14,11 @@ namespace Tournament_Management_Software.ViewModels.Contestants
 {
     public class AddContestantViewModel : ObservableObject
     {
+        private readonly TMSContext _context = new TMSContext();
         private Contestant _contestant;
+        public string OutputMessage { get; set; }
 
-        public GenderEnum Gender { get { return _contestant.Gender; } set { _contestant.Gender = value; RaisePropertyChangedEvent("Gender"); } }
+        [Required(ErrorMessage = "Musisz podać imię uczestnika!")]
         public string TxtContestantFirstName
         {
             get { return _contestant.FirstName; }
@@ -25,25 +28,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
                 RaisePropertyChangedEvent("TxtContestantFirstName");
             }
         }
-        public string OutputMessage { get; set; }
-
-        public ICommand AddNewContestantCommand => new DelegateCommand(AddNewContestant);
-        public string TxtContestantWeight { get { return _contestant.Weight.ToString(); } set
-            {
-                if (value != null && !value.Equals(""))
-                {
-                    _contestant.Weight = Double.Parse(value);
-                    RaisePropertyChangedEvent("Weight");
-                }
-            } }
-        public string TxtContestantHeight { get { return _contestant.Height.ToString(); } set
-        {
-            if (value != null && !value.Equals(""))
-            {
-                _contestant.Height = Double.Parse(value);
-                RaisePropertyChangedEvent("Height");
-            }
-        } }
+        [Required(ErrorMessage = "Musisz podać nazwisko uczestnika!")]
         public string TxtContestantLastName
         {
             get { return _contestant.LastName; }
@@ -53,7 +38,32 @@ namespace Tournament_Management_Software.ViewModels.Contestants
                 RaisePropertyChangedEvent("ContestantLastName");
             }
         }
+        [Required(ErrorMessage = "Waga jest wymagana!")]
+        [Range(20,100,ErrorMessage = "Waga przekracza dopuszczalny limit!")]
+        public string TxtContestantWeight { get { return _contestant.Weight.ToString(); } set
+            {
+                if (value != null && !value.Equals(""))
+                {
+                    _contestant.Weight = Double.Parse(value);
+                    RaisePropertyChangedEvent("Weight");
+                }
+            } }
+        [Required(ErrorMessage = "Wzrost jest wymagany!")]
+        [Range(50, 200, ErrorMessage = "Wzrost przekracza dopuszczalny limit!")]
+        public string TxtContestantHeight { get { return _contestant.Height.ToString(); } set
+        {
+            if (value != null && !value.Equals(""))
+            {
+                _contestant.Height = Double.Parse(value);
+                RaisePropertyChangedEvent("Height");
+            }
+        } }
+        [Required(ErrorMessage = "Data urodzenia jest wymagana!")]
         public DateTime DtPickerDateOfBirth { get { return _contestant.DateOfBirth; } set { _contestant.DateOfBirth = value; RaisePropertyChangedEvent("DateOfBirth"); } }
+        [Required(ErrorMessage = "Proszę wybrać płeć!")]
+        public GenderEnum Gender { get { return _contestant.Gender; } set { _contestant.Gender = value; RaisePropertyChangedEvent("Gender"); } }
+        public int TournamentId => _contestant.TournamentId;
+
         public bool IsMale
         {
             get { return _contestant.Gender.ToString().Equals("male", StringComparison.InvariantCultureIgnoreCase); }
@@ -67,8 +77,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         public string LblGenderFemale => "Female";
         public string LblGenderMale => "Male";
 
-        public int TournamentId => _contestant.TournamentId;
-
+        public ICommand AddNewContestantCommand => new DelegateCommand(AddNewContestant);
         public AddContestantViewModel(int tournamentId)
         {
             _contestant = new Contestant {TournamentId = tournamentId};
@@ -78,11 +87,10 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         {           
             try
             {
-                TMSContext context = new TMSContext();
                 _contestant.TournamentId = TournamentId;
                 //TODO: VALIDATION
-                context.Contestants.AddOrUpdate(_contestant);
-                context.SaveChanges();
+                _context.Contestants.AddOrUpdate(_contestant);
+                _context.SaveChanges();
                 OutputMessage += "\nSuccessfully added a new contestant to the database!\n" + _contestant.GetContestantDataString();
                 MessageBox.Show(OutputMessage);
             }
@@ -93,9 +101,8 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             }
             ClearData();
             RaisePropertyChangedEvent("Contestant");
-            Messenger.Default.Send(new ChangeView() {Message = new ContestantViewModel(TournamentId)});
+            Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});
         }
-
         public void ClearData()
         {
             TxtContestantFirstName = String.Empty;

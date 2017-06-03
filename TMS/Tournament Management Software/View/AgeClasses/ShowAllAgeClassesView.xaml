@@ -5,5 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <DataGrid ItemsSource="{Binding AgeClassesList}"/>
+    <DataGrid ItemsSource="{Binding AgeClassesList}" AutoGenerateColumns="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn Binding="{Binding AgeClassName}" Header="Age Class Name"/>
+            <DataGridTextColumn Binding="{Binding MinYear}" Header="Min Year"/>
+            <DataGridTextColumn Binding="{Binding MaxYear}" Header="Max Year"/>
+            <DataGridTextColumn Binding="{Binding TournamentId}" Header="TournamentId"/>
+        </DataGrid.Columns>
+    </DataGrid>
 </UserControl>

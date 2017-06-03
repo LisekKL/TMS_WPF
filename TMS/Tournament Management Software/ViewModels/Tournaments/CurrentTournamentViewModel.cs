@@ -28,7 +28,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             if (_tournament == null)
             {
                 MessageBox.Show("Nie znaleziono turnieju o ID " + tournamentId);
-                Messenger.Default.Send(new ChangeView() {Message = new TournamentViewModel()});
+                Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});
             }
            // var context = new TMSContext();
            // _roundsView = new RoundViewModel(tournamentId);
@@ -43,19 +43,19 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             ListView.Add(new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand});
             ListView.Add(new ButtonItem() {Label = "AgeClasses", Command = GoToAgeClassesCommand});
             RaisePropertyChangedEvent("ListView");
-            Messenger.Default.Send(new ChangeListView() { Message = ListView });
+            Messenger.Default.Send(new ChangeListView() { NavigationButtonsItems = ListView, NavigationTitle = "CURRENT TOURNAMENT: " +_tournament.TournamentId});
         }
         public ICommand GoToContestantsCommand => new DelegateCommand(GoToContestants);
         public void GoToContestants()
         {
-            Messenger.Default.Send(new ChangeView() {Message = new ContestantViewModel(_tournament.TournamentId)});
+            Messenger.Default.Send(new ChangeView() {ViewName = "Contestants"});
             RaisePropertyChangedEvent("CurrentView");
         }
 
         public ICommand GoToAgeClassesCommand => new DelegateCommand(GoToAgeClasses);
         public void GoToAgeClasses()
         {
-            Messenger.Default.Send(new ChangeView() { Message = new AgeClassViewModel(_tournament.TournamentId)});
+            Messenger.Default.Send(new ChangeView() { ViewName = "AgeClasses"});
             RaisePropertyChangedEvent("CurrentView");
         }
 

@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.CodeDom;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,6 +14,9 @@ namespace Tournament_Management_Software.ViewModels.Home
     public class DefaultViewModel : ObservableObject
     {
         public string ViewTitle { get; set; } = "DEFAULT VIEW";
+
+        public string ImagePath =>
+            @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\judo-banner.jpg";
         public ObservableCollection<ButtonItem> ListView { get; set; }
         public string ListViewTitle { get; set; } = "HOME MENU";
 
@@ -36,11 +42,46 @@ namespace Tournament_Management_Software.ViewModels.Home
         {
             ListView = new ObservableCollection<ButtonItem>()
             {
-                new ButtonItem() {Label = "Home"},
-                new ButtonItem() {Label = "Exit"}
+                new ButtonItem() {Label = "Home", Command = GoHomeCommand},
+                new ButtonItem() {Label = "Tournaments", Command = GoToTournamentsCommand}, 
+                new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand },
+                new ButtonItem() {Label = "Exit", Command = ExitCommand}
             };
             RaisePropertyChangedEvent("ListView");
-            Messenger.Default.Send(new ChangeListView() {Message = ListView, Title = "MAIN MENU"});
+            Messenger.Default.Send(new ChangeListView() {NavigationButtonsItems = ListView, NavigationTitle = "MAIN MENU"});
         }
+
+        public ICommand GoHomeCommand => new DelegateCommand(GoHome);
+        public ICommand GoToTournamentsCommand => new DelegateCommand(GoToTournaments);
+        public ICommand GoToContestantsCommand => new DelegateCommand(GoToContestants);
+        public ICommand GoToManualCommand => new DelegateCommand(GoToManual);
+        public ICommand ExitCommand => new DelegateCommand(Exit);
+
+        public void GoHome()
+        {
+            Messenger.Default.Send(new ChangeView() { ViewName = "Home" });
+        }
+        public void GoToContestants()
+        {
+            Messenger.Default.Send(new ChangeView() {ViewName = "Contestants"});
+        }
+        public void GoToTournaments()
+        {
+            Messenger.Default.Send(new ChangeView() { ViewName = "Tournaments" });
+        }
+        public void Exit()
+        {
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Question", MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        public void GoToManual()
+        {
+            throw new NotImplementedException();
+        }
+            
     }
 }

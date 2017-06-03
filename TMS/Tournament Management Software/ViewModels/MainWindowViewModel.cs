@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
@@ -61,52 +62,33 @@ namespace Tournament_Management_Software.ViewModels
                     },
                     new MenuItem()
                     {
-                        Header = "Current Tournament",
-                        Command = NavigateToCurrentTournamentCommand
-                    },
-                    new MenuItem()
-                    {
                         Header = "Contestants",
                         Command = NavigateToContestantCommand
                     },
                     new MenuItem()
                     {
-                    Header = "AgeClasses",
-                    Command = NavigateToAgeClassesCommand
+                        Header = "AgeClasses",
+                        Command = NavigateToAgeClassesCommand
                     }
                 };
             RaisePropertyChangedEvent("NavigationMenu");
         }
 
-        public ICommand NavigateToCurrentTournamentCommand => new DelegateCommand(SetCurrentTournamentView);
-        public void SetCurrentTournamentView()
-        {
-            if (_currentTournamentId == 0)
-            {
-                MessageBox.Show("No Tournament selected!\nPlease select a tournament first to show its information!");
-            }
-            else
-            {
-                _currentView = new CurrentTournamentViewModel(_currentTournamentId);
-                RaisePropertyChangedEvent("CurrentView");
-            }
-        }
-
         public ICommand NavigateHomeCommand => new DelegateCommand(SetHomeView);
+        public ICommand NavigateToTournamentCommand => new DelegateCommand(SetTournamentView);
+        public ICommand NavigateToContestantCommand => new DelegateCommand(SetContestantView);
+        public ICommand NavigateToAgeClassesCommand => new DelegateCommand(SetAgeClassView);
+
         public void SetHomeView()
         {
             _currentView = new DefaultViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand NavigateToTournamentCommand => new DelegateCommand(SetTournamentView);
         public void SetTournamentView()
         {
             _currentView = new TournamentViewModel();
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand NavigateToContestantCommand => new DelegateCommand(SetContestantView);
         public void SetContestantView()
         {
             if (_currentTournamentId == 0)
@@ -119,8 +101,6 @@ namespace Tournament_Management_Software.ViewModels
                 RaisePropertyChangedEvent("CurrentView");
             }
         }
-
-        public ICommand NavigateToAgeClassesCommand => new DelegateCommand(SetAgeClassView);
         public void SetAgeClassView()
         {
             if (_currentTournamentId == 0)
@@ -139,13 +119,43 @@ namespace Tournament_Management_Software.ViewModels
             _currentListView = new NavigationMenuViewModel(action);
             RaisePropertyChangedEvent("CurrentListView");
         }
-
         public void SetView(ChangeView action)
         {
-            _currentView = action.Message;
+            string viewName = action.ViewName;
+            if (viewName.Equals("Home", StringComparison.InvariantCultureIgnoreCase))
+            {
+                _currentView = new DefaultViewModel();
+            }
+            else if (viewName.Equals("Tournaments", StringComparison.InvariantCultureIgnoreCase))
+            {
+                _currentView = new TournamentViewModel();
+            }
+            else if (viewName.Equals("Contestants", StringComparison.InvariantCultureIgnoreCase))
+            {
+                if (_currentTournamentId > 0)
+                    _currentView = new ContestantViewModel(_currentTournamentId);
+                else
+                {
+                    MessageBox.Show("INVALID TOURNAMENT ID!\nPlease select a valid tournament!\n");
+                    _currentView = new DefaultViewModel();
+                }
+            }
+            else if (viewName.Equals("AgeClasses", StringComparison.InvariantCultureIgnoreCase))
+            {
+                if (_currentTournamentId > 0)
+                    _currentView = new AgeClassViewModel(_currentTournamentId);
+                else
+                {
+                    MessageBox.Show("INVALID TOURNAMENT ID!\nPlease select a valid tournament!\n");
+                    _currentView = new DefaultViewModel();
+                }
+            }
+            else
+            {
+                _currentView = new DefaultViewModel();
+            }
             RaisePropertyChangedEvent("CurrentView");
         }
-
         public void SetTournamentId(ActiveTournamentId action)
         {
             _currentTournamentId = action.Message;

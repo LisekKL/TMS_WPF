@@ -7,6 +7,7 @@
              xmlns:tournaments="clr-namespace:Tournament_Management_Software.ViewModels.Tournaments"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    
     <UserControl.Resources>
        <DataTemplate DataType="{x:Type tournaments:ShowAllTournamentsViewModel}">
            <local:ShowAllTournamentsView/>
@@ -21,9 +22,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding ViewTitle}" Margin="10" TextAlignment="Center" Background="Teal" FontWeight="Bold"/>
+        <Image Source="{Binding ImagePath}" Margin="10" Stretch="Fill"/>
         <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="20"/>
     </Grid>
 </UserControl>

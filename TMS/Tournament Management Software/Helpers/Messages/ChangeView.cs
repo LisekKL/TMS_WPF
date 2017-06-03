@@ -2,6 +2,6 @@
 {
     public class ChangeView
     {
-        public object Message { get; set; }
+        public string ViewName { get; set; }
     }
 }
