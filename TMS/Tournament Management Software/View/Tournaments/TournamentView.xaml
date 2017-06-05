@@ -22,9 +22,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <Image Source="{Binding ImagePath}" Margin="10" Stretch="Fill"/>
-        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="20"/>
+        <Viewbox Grid.Row="1">
+            <ContentControl Content="{Binding CurrentView}" Margin="20"/>
+        </Viewbox>
     </Grid>
 </UserControl>

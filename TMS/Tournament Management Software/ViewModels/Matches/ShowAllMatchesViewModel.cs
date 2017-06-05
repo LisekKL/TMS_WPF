@@ -9,6 +9,7 @@ namespace Tournament_Management_Software.ViewModels.Matches
     public class ShowAllMatchesViewModel : ObservableObject
     {
         private readonly int _tournamentId;
+        private readonly TMSContext _context = new TMSContext();
         public ShowAllMatchesViewModel(int tournamentId)
         {
             _tournamentId = tournamentId;
@@ -18,8 +19,8 @@ namespace Tournament_Management_Software.ViewModels.Matches
 
         public void GetAllMatchesFromDatabase()
         {
-            var context = new TMSContext();
-            Matches = new ObservableCollection<SingleMatch>((from match in context.Matches where match.TournamentId == _tournamentId select match).ToList());
+            Matches = new ObservableCollection<SingleMatch>((from match in _context.Matches where match.TournamentId == _tournamentId select match).ToList());
+            RaisePropertyChangedEvent("Matches");
         }
     }
 }

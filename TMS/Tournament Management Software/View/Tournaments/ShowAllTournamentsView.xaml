@@ -7,10 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
 
-    <UserControl.DataContext>
-        <tournaments:ShowAllTournamentsViewModel/>
-    </UserControl.DataContext>
-
     <Grid HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

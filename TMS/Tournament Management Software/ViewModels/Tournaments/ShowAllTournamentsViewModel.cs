@@ -52,7 +52,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         public ShowAllTournamentsViewModel()
         {
             _tournaments = new ObservableCollection<Tournament>((from t in _context.Tournaments select t).ToList());
-            RaisePropertyChangedEvent("Tournaments");
+           // RaisePropertyChangedEvent("Tournaments");
         }
         public void FilterTournaments()
         {

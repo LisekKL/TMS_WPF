@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
     
-    <DataGrid Background="LightGray" HorizontalAlignment="Stretch" ItemsSource="{Binding Contestants}" AutoGenerateColumns="False">
+    <DataGrid Background="LightGray" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Contestants}" AutoGenerateColumns="False">
         <DataGrid.Columns>
             <DataGridTextColumn Binding="{Binding FirstName}" Header="First Name"/>
             <DataGridTextColumn Binding="{Binding LastName}" Header="Last Name"/>

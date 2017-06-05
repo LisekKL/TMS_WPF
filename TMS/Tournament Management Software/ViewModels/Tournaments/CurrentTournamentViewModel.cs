@@ -43,7 +43,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             ListView.Add(new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand});
             ListView.Add(new ButtonItem() {Label = "AgeClasses", Command = GoToAgeClassesCommand});
             RaisePropertyChangedEvent("ListView");
-            Messenger.Default.Send(new ChangeListView() { NavigationButtonsItems = ListView, NavigationTitle = "CURRENT TOURNAMENT: " +_tournament.TournamentId});
+            Messenger.Default.Send(new ChangeListView() { NavigationButtonsItems = ListView, NavigationTitle = "CURRENT TOURNAMENT: " +_tournament?.TournamentId});
         }
         public ICommand GoToContestantsCommand => new DelegateCommand(GoToContestants);
         public void GoToContestants()

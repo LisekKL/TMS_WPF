@@ -20,12 +20,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
         <!--<TextBlock Text="{Binding ViewTitle}" Margin="10" Background="Teal" FontWeight="Bold" TextAlignment="Center"/>-->
-        <Image Source="{Binding ImagePath}" Margin="10"/>
-        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="20" />
+        <Image Source="{Binding ImagePath}" Margin="10" Stretch="Fill" HorizontalAlignment="Stretch"/>
+        <Viewbox Grid.Row="1">
+            <ContentControl Content="{Binding CurrentView}" Margin="10" />
+        </Viewbox>
 
     </Grid>
 </UserControl>

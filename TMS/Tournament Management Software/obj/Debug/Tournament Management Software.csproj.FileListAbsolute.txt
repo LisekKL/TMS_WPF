@@ -30,6 +30,26 @@ C:\Users\Karol\Desktop\TMS WPF\TMS\Tournament Management Software\obj\Debug\View
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS GITHUB REP\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AddAgeClassView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\ShowAllAgeClassesView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\AddWeightClassView.baml
@@ -41,7 +61,6 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AddAgeClassView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AgeClassView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\ShowAllAgeClassesView.g.cs
@@ -63,35 +82,15 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.cache
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software_MarkupCompile.lref
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe.config
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.exe
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Tournament Management Software.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.xml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\App.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AgeClassView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ContestantView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\MainWindow.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\CurrentTournamentView.baml
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\TournamentView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.g.resources
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament_Management_Software.Properties.Resources.resources
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csproj.GenerateResource.Cache
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csprojResolveAssemblyReference.cache
