@@ -18,23 +18,23 @@
 
         <Image Source="{Binding ImagePath}" Grid.ColumnSpan="2" Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"></Image>
         <Canvas Grid.Row="1" Grid.ColumnSpan="2" Background="DarkRed"/>
-        <Button Grid.Row="1" Command="{Binding GoToTournamentsCommand}" Padding="2" Margin="10,30" FontWeight="Bold">
+        <Button Grid.Row="1" Command="{Binding GoToTournamentsCommand}" Content="TOURNAMENTS" Padding="2" Margin="10,30" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="#FFE2A545" Offset="0.498"/>
                     <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
-            </Button.Background> TOURNAMENTS
+            </Button.Background> 
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Command="{Binding GoToManualCommand}" Padding="15" Margin="10,30" FontWeight="Bold">
+        <Button Grid.Row="1" Grid.Column="1" Command="{Binding GoToManualCommand}" Content="MANUAL" Padding="15" Margin="10,30" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="White" Offset="1"/>
                     <GradientStop Color="#FF7D7D7D" Offset="0.488"/>
                 </LinearGradientBrush>
-            </Button.Background> MANUAL
+            </Button.Background>
         </Button>
         <!--<ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>-->
 

@@ -14,7 +14,6 @@ namespace Tournament_Management_Software.ViewModels.Home
     public class DefaultViewModel : ObservableObject
     {
         public string ViewTitle { get; set; } = "DEFAULT VIEW";
-
         public string ImagePath =>
             @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\judo-banner.jpg";
         public ObservableCollection<ButtonItem> ListView { get; set; }
@@ -80,7 +79,7 @@ namespace Tournament_Management_Software.ViewModels.Home
 
         public void GoToManual()
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
             
     }

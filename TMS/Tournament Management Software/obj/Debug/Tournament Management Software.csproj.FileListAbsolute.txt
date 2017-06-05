@@ -94,3 +94,4 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csproj.GenerateResource.Cache
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csprojResolveAssemblyReference.cache

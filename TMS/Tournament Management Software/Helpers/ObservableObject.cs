@@ -24,6 +24,15 @@ namespace Tournament_Management_Software.Helpers
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             ValidateAsync();
         }
+        protected void RaisePropertyChangedEvent(List<string> propertyNames)
+        {
+            foreach (var propName in propertyNames)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+                ValidateAsync();
+            }
+        }
+
         public bool HasErrors => _errors.Any(propError => propError.Value?.Count > 0);
         public void OnErrorsChanged(string propertyName)
         {

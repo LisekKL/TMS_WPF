@@ -112,6 +112,7 @@
     <Compile Include="Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\Enums\GenderEnum.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
+    <Compile Include="Helpers\OpponentFinder\RoundRobin.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Result.cs" />
     <Compile Include="Model\Tournament.cs" />

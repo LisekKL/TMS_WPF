@@ -16,10 +16,8 @@ namespace Tournament_Management_Software.Model
         public int SingleMatchId { get; set; }
         public string MatchName { get; set; }
         public DateTime? StartDate { get; set; }
-
         public DateTime? EndDate { get; set; }
-
-        public long Duration { get; set; }
+        public long? Duration { get; set; }
         public Result Result { get; set; }
 
         public int FirstContestantId { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -11,7 +12,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
     {
         public string ViewTitle { get; set; } = "Tournament View";
         public string ImagePath => @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\tournament banner.png";
-
+        public string RowHeight { get; set; } = "1.5*";
         private object _currentView;
         public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
 
@@ -53,12 +54,14 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
 
         public void GoHome()
         {
+            RowHeight = "0";
             Messenger.Default.Send(new ChangeView() { ViewName = "Home" });
         }
         public void ShowAllTournaments()
         {
+            RowHeight = "2*";
             _currentView = new ShowAllTournamentsViewModel();
-            RaisePropertyChangedEvent("CurrentView");
+            RaisePropertyChangedEvent(new List<string>() { "CurrentView", "RowHeight"});
         }
         public void AddNewTournament()
         {
@@ -67,13 +70,17 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         }
         public void GoToCurrentTournament()
         {
+
             if (_currentTournamentId > 0)
+            {
+                RowHeight = "4*";
                 _currentView = new CurrentTournamentViewModel(_currentTournamentId);
+            }
             else
             {
                 MessageBox.Show("Nie wybrano turnieju lub turniej nie poprawny!");
             }
-            RaisePropertyChangedEvent("CurrentView");
+            RaisePropertyChangedEvent(new List<string>() { "CurrentView", "RowHeight" });
         }
         public void Exit()
         {
