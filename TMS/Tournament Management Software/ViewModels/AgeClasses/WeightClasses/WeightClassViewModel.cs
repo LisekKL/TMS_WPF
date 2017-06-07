@@ -1,12 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Messages;
-using Tournament_Management_Software.Model;
+
 
 namespace Tournament_Management_Software.ViewModels.AgeClasses.WeightClasses
 {
@@ -20,6 +19,7 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses.WeightClasses
         private object _currentView;
         public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
 
+        public WeightClassViewModel() { }
         public WeightClassViewModel(int ageClassId)
         {
             _ageClassId = ageClassId;

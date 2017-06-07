@@ -11,6 +11,8 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses
     {
         private readonly int _tournamentId;
         public string ViewTitle { get; set; } = "AGE CLASS VIEW";
+
+        public AgeClassViewModel() { }
         public AgeClassViewModel(int tournamentId)
         {
             _tournamentId = tournamentId;
@@ -34,20 +36,24 @@ namespace Tournament_Management_Software.ViewModels.AgeClasses
         }
 
         public ICommand ShowAllAgeClassesCommand => new DelegateCommand(ShowAllAgeClasses);
+        public ICommand AddAgeClassCommand => new DelegateCommand(AddAgeClass);
+        public ICommand GoToWeightClassesCommand => new DelegateCommand(GoToWeightClasses);
+        public ICommand ExitCommand => new DelegateCommand(Exit);
+
         public void ShowAllAgeClasses()
         {
             _currentView = new ShowAllAgeClassesViewModel(_tournamentId);
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand AddAgeClassCommand => new DelegateCommand(AddAgeClass);
+        public void Exit()
+        {
+            Messenger.Default.Send(new ChangeView() { ViewName = "EXIT" });
+        }
         public void AddAgeClass()
         {
             _currentView = new AddAgeClassViewModel(_tournamentId);
             RaisePropertyChangedEvent("CurrentView");
         }
-
-        public ICommand GoToWeightClassesCommand => new DelegateCommand(GoToWeightClasses);
         public void GoToWeightClasses()
         {
             _currentView = new WeightClassViewModel(_tournamentId);

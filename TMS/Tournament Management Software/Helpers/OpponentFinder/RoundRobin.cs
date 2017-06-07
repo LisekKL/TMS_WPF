@@ -40,6 +40,7 @@ namespace Tournament_Management_Software.Helpers.OpponentFinder
                 allContestants.Add(new Contestant() {FirstName = "", LastName = "", TournamentId = allContestants[0].TournamentId});
 
             int returnedToStartIndex = 1;
+            return matches;
         }
     }
 }

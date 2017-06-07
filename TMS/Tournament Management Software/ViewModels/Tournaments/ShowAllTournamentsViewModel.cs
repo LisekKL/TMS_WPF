@@ -21,7 +21,14 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
 
         public bool FilterShowAll
         {
-            get { return _filterShowAll; }
+            get
+            {
+                if (_filterShowHistory && _filterShowOpen)
+                    _filterShowAll = true;
+                else
+                    _filterShowAll = false;
+                return _filterShowAll;
+            }
             set
             {
                 _filterShowAll = value;
@@ -52,7 +59,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         public ShowAllTournamentsViewModel()
         {
             _tournaments = new ObservableCollection<Tournament>((from t in _context.Tournaments select t).ToList());
-           // RaisePropertyChangedEvent("Tournaments");
+            RaisePropertyChangedEvent("Tournaments");
         }
         public void FilterTournaments()
         {

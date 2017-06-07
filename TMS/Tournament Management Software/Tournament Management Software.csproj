@@ -166,6 +166,9 @@
     <Compile Include="View\Tournaments\AddTournamentView.xaml.cs">
       <DependentUpon>AddTournamentView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Tournaments\AddTournamentWindow.xaml.cs">
+      <DependentUpon>AddTournamentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Tournaments\CurrentTournamentView.xaml.cs">
       <DependentUpon>CurrentTournamentView.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Tournaments\AddTournamentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tournaments\AddTournamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -313,6 +320,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\register_banner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\public-exit-button-hi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\competition armwrestlers.png" />
+    <Resource Include="Images\competitor-icon-300x300.png" />
+    <Resource Include="Images\competitors.png" />
+    <Resource Include="Images\events.png" />
+    <Resource Include="Images\icon exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\manualIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

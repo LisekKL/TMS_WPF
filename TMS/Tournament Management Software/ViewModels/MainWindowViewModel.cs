@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
@@ -10,6 +12,7 @@ using Tournament_Management_Software.ViewModels.AgeClasses.WeightClasses;
 using Tournament_Management_Software.ViewModels.Contestants;
 using Tournament_Management_Software.ViewModels.Home;
 using Tournament_Management_Software.ViewModels.Tournaments;
+using Application = System.Windows.Application;
 using MenuItem = System.Windows.Controls.MenuItem;
 using MessageBox = System.Windows.MessageBox;
 
@@ -18,37 +21,27 @@ namespace Tournament_Management_Software.ViewModels
 {
     public class MainWindowViewModel : ObservableObject
     {
-        private Dictionary<string, object> _viewModels;
-
-        //Tytuł - nie wymagane
-        public static string Title { get; set; } = "Tournament Management Software";
-
         // Konstruktor inicjalujący listę navigacyjną (menu) oraz Opcje
         public MainWindowViewModel()
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentId);
-            Messenger.Default.Register<ChangeListView>(this, SetListView);
-            Messenger.Default.Register<ChangeView>(this, SetView);
-            InitiateNavigationBar();
             InitiateViewModels();
+            SetWaitForMessages();
+            InitiateNavigationBar();
             SetHomeView();
         }
 
         // Dostaje wiadomość z ID zaznaczonego turnieju
         private int _currentTournamentId;
         public int CurrentTournamentId { get { return _currentTournamentId; } set { _currentTournamentId = value; RaisePropertyChangedEvent("CurrentTournamentId"); } }
-
-        // Przechowuje opcje dla górnego menu
-        public ObservableCollection<MenuItem> NavigationMenu { get; set; }
-
         // Przechowuje widok główny obecny
         private object _currentView;
         public object CurrentView { get { return _currentView; } set { _currentView = value; RaisePropertyChangedEvent("CurrentView"); } }
-
         // Przechowuje listę nawigacyjną dla obecnego widoku
         private object _currentListView;
         public object CurrentListView { get { return _currentListView; } set { _currentListView = value; RaisePropertyChangedEvent("CurrentListView"); } }
 
+        // Przechowuje opcje dla górnego menu
+        public ObservableCollection<MenuItem> NavigationMenu { get; set; }
         //Inicjalizuje górne menu
         public void InitiateNavigationBar()
         {
@@ -78,15 +71,24 @@ namespace Tournament_Management_Software.ViewModels
                 };
             RaisePropertyChangedEvent("NavigationMenu");
         }
-
+        public void SetWaitForMessages()
+        {
+            Messenger.Default.Register<ActiveTournamentId>(this, SetTournamentId);
+            Messenger.Default.Register<ChangeListView>(this, SetListView);
+            Messenger.Default.Register<ChangeView>(this, SetView);
+        }
+        // by miec zainicjowane na poczatku
+        private Dictionary<string, object> _viewModels;
+        //Dodane by mieć jedną mapę już wszystkich zainicjowanych widoków
         public void InitiateViewModels()
         {
             _viewModels = new Dictionary<string, object>
             {
                 {"Home", new DefaultViewModel()},
                 {"Tournaments", new TournamentViewModel()},
-                {"Contestants", new ContestantViewModel(_currentTournamentId)},
-                {"AgeClasses", new AgeClassViewModel(_currentTournamentId)}
+                {"Contestants", new ContestantViewModel()},
+                {"AgeClasses", new AgeClassViewModel()},
+                {"WeightClasses", new WeightClassViewModel() }
             };
         }
 
@@ -94,6 +96,7 @@ namespace Tournament_Management_Software.ViewModels
         public ICommand NavigateToTournamentCommand => new DelegateCommand(SetTournamentView);
         public ICommand NavigateToContestantCommand => new DelegateCommand(SetContestantView);
         public ICommand NavigateToAgeClassesCommand => new DelegateCommand(SetAgeClassView);
+        public ICommand ExitCommand => new DelegateCommand(Exit);
 
         public void SetHomeView()
         {
@@ -129,6 +132,10 @@ namespace Tournament_Management_Software.ViewModels
                 RaisePropertyChangedEvent("CurrentView");
             }
         }
+        public void Exit()
+        {
+            Application.Current.Shutdown();
+        }
 
         public void SetListView(ChangeListView action)
         {
@@ -137,39 +144,21 @@ namespace Tournament_Management_Software.ViewModels
         }
         public void SetView(ChangeView action)
         {
+            if (action.ViewName.Equals("EXIT", StringComparison.InvariantCultureIgnoreCase))
+            {
+                Exit();
+            }
+
             string viewName = action.ViewName;
-            if (viewName.Equals("Home", StringComparison.InvariantCultureIgnoreCase))
+            try
             {
-                _currentView = _viewModels["Home"];
+                _currentView = _viewModels[viewName];
             }
-            else if (viewName.Equals("Tournaments", StringComparison.InvariantCultureIgnoreCase))
+            catch (Exception e)
             {
-                _currentView = _viewModels["Tournaments"];
+                MessageBox.Show("UNKKNOWN VIEW!!!! Returning to main window...");
             }
-            else if (viewName.Equals("Contestants", StringComparison.InvariantCultureIgnoreCase))
-            {
-                if (_currentTournamentId > 0)
-                    _currentView = _viewModels["Contestants"];
-                else
-                {
-                    MessageBox.Show("INVALID TOURNAMENT ID!\nPlease select a valid tournament!\n");
-                    _currentView = _viewModels["Home"];
-                }
-            }
-            else if (viewName.Equals("AgeClasses", StringComparison.InvariantCultureIgnoreCase))
-            {
-                if (_currentTournamentId > 0)
-                    _currentView = _viewModels["AgeClasses"];
-                else
-                {
-                    MessageBox.Show("INVALID TOURNAMENT ID!\nPlease select a valid tournament!\n");
-                    _currentView = _viewModels["Home"];
-                }
-            }
-            else
-            {
-                _currentView = _viewModels["Home"];
-            }
+
             RaisePropertyChangedEvent("CurrentView");
         }
         public void SetTournamentId(ActiveTournamentId action)

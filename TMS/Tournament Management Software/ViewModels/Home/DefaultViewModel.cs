@@ -16,6 +16,9 @@ namespace Tournament_Management_Software.ViewModels.Home
         public string ViewTitle { get; set; } = "DEFAULT VIEW";
         public string ImagePath =>
             @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\judo-banner.jpg";
+
+        public string ExitButtonImagePath =>
+            @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\public-exit-button-hi.png";
         public ObservableCollection<ButtonItem> ListView { get; set; }
         public string ListViewTitle { get; set; } = "HOME MENU";
 
@@ -44,10 +47,18 @@ namespace Tournament_Management_Software.ViewModels.Home
                 new ButtonItem() {Label = "Home", Command = GoHomeCommand},
                 new ButtonItem() {Label = "Tournaments", Command = GoToTournamentsCommand}, 
                 new ButtonItem() {Label = "Contestants", Command = GoToContestantsCommand },
-                new ButtonItem() {Label = "Exit", Command = ExitCommand}
+                new ButtonItem() {Label = "Exit", Command = ExitCommand},
+                new ButtonItem() {Label = "CZAS", Command = BiezacyCzas }
             };
             RaisePropertyChangedEvent("ListView");
             Messenger.Default.Send(new ChangeListView() {NavigationButtonsItems = ListView, NavigationTitle = "MAIN MENU"});
+        }
+
+        public ICommand BiezacyCzas => new DelegateCommand(czasNow);
+
+        public void czasNow()
+        {
+            Messenger.Default.Send(new ChangeView()  {ViewName = "CZAS"});
         }
 
         public ICommand GoHomeCommand => new DelegateCommand(GoHome);

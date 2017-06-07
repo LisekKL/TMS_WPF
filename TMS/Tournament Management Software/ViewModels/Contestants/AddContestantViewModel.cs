@@ -58,8 +58,22 @@ namespace Tournament_Management_Software.ViewModels.Contestants
                 RaisePropertyChangedEvent("Height");
             }
         } }
+
         [Required(ErrorMessage = "Data urodzenia jest wymagana!")]
-        public DateTime DtPickerDateOfBirth { get { return _contestant.DateOfBirth; } set { _contestant.DateOfBirth = value; RaisePropertyChangedEvent("DateOfBirth"); } }
+        public DateTime DtPickerDateOfBirth
+        {
+            get {
+                   _contestant.DateOfBirth = DateTime.Now;
+                return 
+                    _contestant.DateOfBirth; }
+            set
+            {
+                _contestant.DateOfBirth = value;
+                RaisePropertyChangedEvent("DateOfBirth");
+            }
+        }
+
+
         [Required(ErrorMessage = "Proszę wybrać płeć!")]
         public GenderEnum Gender { get { return _contestant.Gender; } set { _contestant.Gender = value; RaisePropertyChangedEvent("Gender"); } }
         public int TournamentId => _contestant.TournamentId;

@@ -40,13 +40,15 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             try
             {
                 TMSContext context = new TMSContext();
-                var query = (from t in context.Tournaments where t.TournamentId == _tournament.TournamentId select t)
+                var query = (from t in context.Tournaments
+                        where t.TournamentId == _tournament.TournamentId || t.Name == _tournament.Name || t.StartDate == _tournament.StartDate                        
+                        select t)
                     .ToList();
                 //TODO: VALIDATION
                 if (query.Count >= 1)
                 {
                     OutputMessage = "This tournament already exists in database!";
-                    MessageBox.Show(OutputMessage);
+                    MessageBox.Show(OutputMessage, "ERROR", MessageBoxButtons.OK);
                 }
                 else
                 {
@@ -54,14 +56,14 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
                     context.SaveChanges();
                     OutputMessage += "\nSuccessfully added a new tournament to the database!\n";
                     OutputMessage += _tournament.GetTournamentDataString();
-                    MessageBox.Show(OutputMessage);
+                    MessageBox.Show(OutputMessage, "SUCCESS");
                 }
             }
             catch (Exception e)
             {
                 OutputMessage += "\nERROR adding new tournament to database!\nErrormessage = " + e.Message + "\n";
                 OutputMessage += _tournament.GetTournamentDataString();
-                MessageBox.Show(OutputMessage);
+                MessageBox.Show(OutputMessage, "ERROR");
             }
             CleanUp();
             Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});

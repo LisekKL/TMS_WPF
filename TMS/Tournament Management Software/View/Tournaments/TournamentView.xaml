@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Image Source="{Binding ImagePath}" Stretch="Fill" HorizontalAlignment="Stretch"/>
-
+        
         <Viewbox Grid.Row="1">
             <ContentControl Content="{Binding CurrentView}" Margin="20"/>
         </Viewbox>

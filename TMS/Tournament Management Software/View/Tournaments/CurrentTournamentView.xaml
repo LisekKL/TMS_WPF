@@ -7,9 +7,11 @@
              xmlns:ageClasses="clr-namespace:Tournament_Management_Software.ViewModels.AgeClasses"
              xmlns:ageClassesView="clr-namespace:Tournament_Management_Software.View.AgeClasses"
              xmlns:weightClasses="clr-namespace:Tournament_Management_Software.ViewModels.AgeClasses.WeightClasses"
+             xmlns:contestants="clr-namespace:Tournament_Management_Software.ViewModels.Contestants"
+             xmlns:contestantsView="clr-namespace:Tournament_Management_Software.View.Contestants"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
+
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type ageClasses:AgeClassViewModel}">
             <ageClassesView:AgeClassView/>
@@ -17,20 +19,14 @@
         <DataTemplate DataType="{x:Type weightClasses:WeightClassViewModel}">
             <weightClassesView:WeightClassView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type contestants:ShowAllContestantsViewModel}">
+            <contestantsView:ShowAllContestantsView/>
+        </DataTemplate>
     </UserControl.Resources>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        
-        <DataGrid Grid.ColumnSpan="2" ItemsSource="{Binding CurrentTournament}"/>
-        <ContentControl Grid.Row="1" Content="{Binding AgeClassView}"/>
-        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding WeightClassView}"/>
-    </Grid>
+
+    <DockPanel>
+        <DataGrid ItemsSource="{Binding Contestants}" DockPanel.Dock="Top"/>
+        <ContentControl Content="{Binding AgeClassView}" DockPanel.Dock="Left"/>
+        <ContentControl Content="{Binding WeightClassView}" DockPanel.Dock="Right"/>
+    </DockPanel>
 </UserControl>
