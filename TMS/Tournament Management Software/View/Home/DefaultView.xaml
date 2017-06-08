@@ -10,8 +10,7 @@
             <RowDefinition/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-
-        <Image Source="{Binding ImagePath}" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+        <Image Source="{Binding ImagePath}" Stretch="UniformToFill"/>
 
         <UniformGrid Grid.Row="1">
             <Button Command="{Binding GoToTournamentsCommand}" Cursor="Hand" BorderThickness="0" >
@@ -32,7 +31,7 @@
             </Button>
             <Button Command="{Binding ExitCommand}" Cursor="Hand" FontWeight="Bold" BorderThickness="0" BorderBrush="#FF7A5252">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/icon exit.jpg" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/user-exit-512.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
         </UniformGrid>

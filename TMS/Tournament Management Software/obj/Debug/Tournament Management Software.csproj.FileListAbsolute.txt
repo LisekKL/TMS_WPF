@@ -57,9 +57,7 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\WeightClasses\WeightClassView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Matches\MatchView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.baml
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.baml
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AddAgeClassView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\AgeClasses\AgeClassView.g.cs
@@ -71,11 +69,9 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\MainWindow.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\NavigationMenuView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Matches\MatchView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\AddTournamentWindow.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\CurrentTournamentView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\ShowAllContestantsView.g.cs
-C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Home\DefaultView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\ShowAllTournamentsView.g.cs
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Tournaments\TournamentView.g.cs
@@ -97,3 +93,5 @@ C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\D
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.exe
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.pdb
 C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\Tournament Management Software.csprojResolveAssemblyReference.cache
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantWindow.g.cs
+C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\obj\Debug\View\Contestants\AddContestantWindow.baml

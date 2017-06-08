@@ -37,16 +37,30 @@
         </DataTemplate>
     </Window.Resources>
 
-      <DockPanel Background="#FF0E4627">
-        <!--<Menu DockPanel.Dock="Top" ItemsSource="{Binding NavigationMenu}" BorderBrush="#FF6B6A6A" BorderThickness="2" FontSize="12" FontWeight="Bold" Foreground="#FFD1C2C2"/>-->
-        <TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTournamentId}"/>
-        <ContentControl DockPanel.Dock="Left" Content="{Binding CurrentListView}" Visibility="Collapsed"/>
-        <ContentControl DockPanel.Dock="Right" Content="{Binding CurrentView}"/>
-        <Button DockPanel.Dock="Bottom" HorizontalAlignment="Right" Command="{Binding ExitCommand}">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FFF9E6E6" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <!--<Menu DockPanel.Dock="Top" ItemsSource="{Binding NavigationMenu}" BorderBrush="#FF6B6A6A" BorderThickness="2" FontSize="12" FontWeight="Bold" Foreground="#FFD1C2C2"/>-->
+            <!--<TextBlock DockPanel.Dock="Top" Text="{Binding CurrentTournamentId}"/>-->
+            <ContentControl DockPanel.Dock="Left" Content="{Binding CurrentListView}" Visibility="Collapsed"/>
+            <ContentControl DockPanel.Dock="Top" Content="{Binding CurrentView}"/>
+        </DockPanel>
+        <Button Grid.Row="1" Command="{Binding NavigateHomeCommand}" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Width="50">
             <Button.Background>
-                <ImageBrush ImageSource="/Tournament Management Software;component/Images/icon exit.jpg"/>
+                <ImageBrush ImageSource="/Tournament Management Software;component/Images/home Icon.png" TileMode="Tile"/>
             </Button.Background>
         </Button>
-    </DockPanel>
+    </Grid>
 </Window>
 

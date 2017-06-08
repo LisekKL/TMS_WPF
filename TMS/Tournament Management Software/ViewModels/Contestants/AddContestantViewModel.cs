@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
@@ -103,9 +104,20 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             {
                 _contestant.TournamentId = TournamentId;
                 //TODO: VALIDATION
-                _context.Contestants.AddOrUpdate(_contestant);
-                _context.SaveChanges();
-                OutputMessage += "\nSuccessfully added a new contestant to the database!\n" + _contestant.GetContestantDataString();
+                var queryName = (from c in _context.Contestants
+                    where c.FirstName.Equals(_contestant.FirstName) && c.LastName.Equals(_contestant.LastName)
+                    select c).ToList();
+                if (queryName.Count >= 1)
+                {
+                    OutputMessage = "A contestant with this name already exists in the database!";
+                }
+                else
+                {
+                    _context.Contestants.AddOrUpdate(_contestant);
+                    _context.SaveChanges();
+                    OutputMessage += "\nSuccessfully added a new contestant to the database!\n" +
+                                     _contestant.GetContestantDataString();
+                }
                 MessageBox.Show(OutputMessage);
             }
             catch (Exception e)
@@ -115,7 +127,6 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             }
             ClearData();
             RaisePropertyChangedEvent("Contestant");
-            Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});
         }
         public void ClearData()
         {
@@ -126,6 +137,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
             DtPickerDateOfBirth = DateTime.Now;
             _contestant = new Contestant();
             RaisePropertyChangedEvent("Contestant");
+            OutputMessage = String.Empty;
         }
     }
 }

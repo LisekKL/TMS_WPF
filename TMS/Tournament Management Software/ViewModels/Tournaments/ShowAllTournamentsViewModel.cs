@@ -59,6 +59,7 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         public ShowAllTournamentsViewModel()
         {
             _tournaments = new ObservableCollection<Tournament>((from t in _context.Tournaments select t).ToList());
+            Messenger.Default.Send(new ChangeImagePath() {ImagePath = @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\banner11.jpg"});
             RaisePropertyChangedEvent("Tournaments");
         }
         public void FilterTournaments()

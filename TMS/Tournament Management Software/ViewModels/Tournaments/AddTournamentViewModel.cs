@@ -9,6 +9,7 @@ using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Context;
 using Tournament_Management_Software.Helpers.Messages;
 using Tournament_Management_Software.Model;
+using Tournament_Management_Software.View.Tournaments;
 using Tournament_Management_Software.ViewModels.Home;
 
 namespace Tournament_Management_Software.ViewModels.Tournaments
@@ -34,22 +35,34 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
         }
 
         public ICommand AddNewTournamentCommand => new DelegateCommand(AddNewTournament);
+        public ICommand CancelCommand => new DelegateCommand(CloseWindow);
 
         public void AddNewTournament()
         {
             try
             {
                 TMSContext context = new TMSContext();
-                var query = (from t in context.Tournaments
-                        where t.TournamentId == _tournament.TournamentId || t.Name == _tournament.Name || t.StartDate == _tournament.StartDate                        
+                //validate ID
+                var queryID = (from t in context.Tournaments
+                        where t.TournamentId == _tournament.TournamentId                        
                         select t)
-                    .ToList();
+                    .ToList();                   
                 //TODO: VALIDATION
-                if (query.Count >= 1)
-                {
-                    OutputMessage = "This tournament already exists in database!";
+                if (queryID.Count >= 1)
+                {     
+                    OutputMessage = "A tournament with this ID already exists in the database!";
                     MessageBox.Show(OutputMessage, "ERROR", MessageBoxButtons.OK);
                 }
+
+                var queryName = (from t in context.Tournaments
+                    where t.Name == _tournament.Name
+                    select t).ToList();
+                if (queryName.Count >= 1)
+                {
+                    OutputMessage = "A tournament with this name already exists in the database!";
+                    MessageBox.Show(OutputMessage, "ERROR", MessageBoxButtons.OK);
+                }
+
                 else
                 {
                     context.Tournaments.AddOrUpdate(_tournament);
@@ -69,6 +82,10 @@ namespace Tournament_Management_Software.ViewModels.Tournaments
             Messenger.Default.Send(new ChangeView() {ViewName = "Tournaments"});
         }
 
+        public void CloseWindow()
+        {
+            CleanUp();
+        }
         public void CleanUp()
         {
             TournamentName = String.Empty;         

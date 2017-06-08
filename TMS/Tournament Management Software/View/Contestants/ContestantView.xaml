@@ -12,9 +12,6 @@
         <DataTemplate DataType="{x:Type contestants:ShowAllContestantsViewModel}">
             <local:ShowAllContestantsView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type contestants:AddContestantViewModel}">
-            <local:AddContestantView/>
-        </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
@@ -24,10 +21,20 @@
         </Grid.RowDefinitions>
 
         <!--<TextBlock Text="{Binding ViewTitle}" Margin="10" Background="Teal" FontWeight="Bold" TextAlignment="Center"/>-->
-        <Image Source="{Binding ImagePath}" Margin="10" Stretch="Fill" HorizontalAlignment="Stretch"/>
-        <Viewbox Grid.Row="1">
-            <ContentControl Content="{Binding CurrentView}" Margin="10" />
-        </Viewbox>
+        <Image Source="{Binding ImagePath}" Stretch="Fill"/>
+        <UniformGrid Grid.Row="1">
+            <Button Command="{Binding AddNewContestantCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/addContestantIcon.png"/>
+                </Button.Background>
+            </Button>
+            <Button Command="{Binding ShowAllContestantsCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/competitor-icon-300x300.png"/>
+                </Button.Background>
+            </Button>
+        </UniformGrid>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="10" />
 
     </Grid>
 </UserControl>

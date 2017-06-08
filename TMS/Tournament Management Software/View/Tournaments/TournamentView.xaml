@@ -9,12 +9,9 @@
              d:DesignHeight="300" d:DesignWidth="300">
     
     <UserControl.Resources>
-       <DataTemplate DataType="{x:Type tournaments:ShowAllTournamentsViewModel}">
-           <local:ShowAllTournamentsView/>
-       </DataTemplate>
-       <DataTemplate DataType="{x:Type tournaments:AddTournamentViewModel}">
-           <local:AddTournamentView/>
-       </DataTemplate>
+        <DataTemplate DataType="{x:Type tournaments:ShowAllTournamentsViewModel}">
+            <local:ShowAllTournamentsView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type tournaments:CurrentTournamentViewModel}">
             <local:CurrentTournamentView/>
         </DataTemplate>
@@ -26,9 +23,30 @@
         </Grid.RowDefinitions>
 
         <Image Source="{Binding ImagePath}" Stretch="Fill" HorizontalAlignment="Stretch"/>
-        
-        <Viewbox Grid.Row="1">
-            <ContentControl Content="{Binding CurrentView}" Margin="20"/>
-        </Viewbox>
+        <UniformGrid Grid.Row="1" Visibility="{Binding MenuVisibility}">
+            <Button Command="{Binding AddNewTournamentCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/add tournament icon.png" Stretch="Uniform"/>
+                </Button.Background>
+                <!--<TextBlock Text="ADD TOURNAMENT" Foreground="White" FontWeight="Bold"></TextBlock>-->
+            </Button>
+            <Button Command="{Binding ShowAllTournamentsCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/showAllicon.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Command="{Binding GoToCurrentTournamentCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/editCurrentTournamentIcon.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Command="{Binding ExitCommand}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Tournament Management Software;component/Images/user-exit-512.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </UniformGrid >
+
+        <ContentControl Content="{Binding CurrentView}" Visibility="{Binding ContentVisibility}" Grid.Row="1" Margin="5"/>
     </Grid>
 </UserControl>

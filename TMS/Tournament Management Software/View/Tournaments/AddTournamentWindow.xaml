@@ -7,7 +7,13 @@
         mc:Ignorable="d"
         Title="AddTournamentWindow" Height="300" Width="300">
 
-    <Grid Background="DarkGoldenrod" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="15">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDDD5D5" Offset="0"/>
+                <GradientStop Color="#FF080808" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -19,9 +25,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label VerticalContentAlignment="Center" FontWeight="Bold" FontSize="12" Content="TournamentName"/>
-        <TextBox Grid.Column="1" Text="{Binding TournamentName, ValidatesOnNotifyDataErrors=True}" Margin="10" FontSize="12" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" />
 
+        <Label VerticalContentAlignment="Center" FontWeight="Bold" FontSize="12" Content="TournamentName"/>
+        <StackPanel Grid.Column="1" >
+            <TextBox Text="{Binding TournamentName, ValidatesOnNotifyDataErrors=True}" Margin="10" FontSize="12" VerticalAlignment="Center" VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
         <Label Grid.Row="1" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="12" Content="Planned starting date"/>
         <DatePicker Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="12" Margin="10" SelectedDate="{Binding DtPickerStartDate, ValidatesOnNotifyDataErrors=True}" Text="{Binding TxtDateTime}"/>
 
@@ -31,8 +39,8 @@
         <Label Grid.Row="3" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="12" Content="Information"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Information, ValidatesOnNotifyDataErrors=True}" FontSize="12" VerticalAlignment="Center" Margin="10" VerticalScrollBarVisibility="Auto"/>
 
-        <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Padding="5" VerticalAlignment="Center" Command="{Binding AddNewTournamentCommand}" FontWeight="Bold" FontFamily="Source Code Pro Semibold" Content="Add new Tournament"/>
-
+        <Button HorizontalAlignment="Center" Grid.Row="4" Padding="5" VerticalAlignment="Center" Command="{Binding AddNewTournamentCommand}" FontWeight="Bold" FontFamily="Source Code Pro Semibold" Content="Add new Tournament" Foreground="#FFF0E2E2" Background="#FF055915"/>
+        <Button  Grid.Row="4" Grid.Column="1" Command="{Binding CancelCommand}" IsCancel="True" Content="CANCEL" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="5" Background="#FF5C1111" Foreground="#FFD0CDCD" FontWeight="Bold" FontSize="10"/>
         <!--<ContentControl Grid.Row="4" Grid.ColumnSpan="2" Padding="20" Content="{Binding LoggerWindow}"></ContentControl>-->
     </Grid>
 

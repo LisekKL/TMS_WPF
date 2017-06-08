@@ -105,7 +105,9 @@
     <Compile Include="Helpers\Messages\ActiveAgeClassId.cs" />
     <Compile Include="Helpers\Messages\ActiveTournamentId.cs" />
     <Compile Include="Helpers\ButtonItem.cs" />
+    <Compile Include="Helpers\Messages\ChangeImagePath.cs" />
     <Compile Include="Helpers\Messages\ChangeListView.cs" />
+    <Compile Include="Helpers\Messages\ChangeRowSize.cs" />
     <Compile Include="Helpers\Messages\ChangeView.cs" />
     <Compile Include="Helpers\Context\TMSContextInitializer.cs" />
     <Compile Include="Helpers\Context\TMSContext.cs" />
@@ -154,6 +156,9 @@
     <Compile Include="View\AgeClasses\WeightClasses\WeightClassView.xaml.cs">
       <DependentUpon>WeightClassView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Contestants\AddContestantWindow.xaml.cs">
+      <DependentUpon>AddContestantWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Contestants\ContestantView.xaml.cs">
       <DependentUpon>ContestantView.xaml</DependentUpon>
     </Compile>
@@ -163,9 +168,6 @@
     <Compile Include="View\Matches\MatchView.xaml.cs">
       <DependentUpon>MatchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Tournaments\AddTournamentView.xaml.cs">
-      <DependentUpon>AddTournamentView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Tournaments\AddTournamentWindow.xaml.cs">
       <DependentUpon>AddTournamentWindow.xaml</DependentUpon>
     </Compile>
@@ -174,9 +176,6 @@
     </Compile>
     <Compile Include="View\Contestants\ShowAllContestantsView.xaml.cs">
       <DependentUpon>ShowAllContestantsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Contestants\AddContestantView.xaml.cs">
-      <DependentUpon>AddContestantView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home\DefaultView.xaml.cs">
       <DependentUpon>DefaultView.xaml</DependentUpon>
@@ -211,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Contestants\AddContestantWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Contestants\ContestantView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,10 +242,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Tournaments\AddTournamentView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Tournaments\AddTournamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,10 +251,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Contestants\ShowAllContestantsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Contestants\AddContestantView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,6 +328,33 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\manualIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user-exit-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add tournament icon.png" />
+    <Resource Include="Images\addContestantIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\editCurrentTournamentIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\showAllicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\judo background.jpg" />
+    <Resource Include="Images\tournament background cont.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\home Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\66859521-judo-wallpapers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\banner11.jpg" />
+    <Resource Include="Images\fuji_judobelt__beltfujiblack__front__1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

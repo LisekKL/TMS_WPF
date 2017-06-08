@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GalaSoft.MvvmLight.Messaging;
+using Tournament_Management_Software.Helpers.Messages;
+using Tournament_Management_Software.ViewModels.Contestants;
 
 namespace Tournament_Management_Software.View.Contestants
 {
     /// <summary>
-    /// Interaction logic for ContestantView.xaml
+    /// Interaction logic for AddContestantWindow.xaml
     /// </summary>
-    public partial class ContestantView : UserControl
+    public partial class AddContestantWindow : Window
     {
-        public ContestantView()
+        public AddContestantWindow()
         {
+            
             InitializeComponent();
+            DataContext = new AddContestantViewModel(1);
         }
 
     }

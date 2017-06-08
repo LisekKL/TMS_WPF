@@ -1,0 +1,88 @@
+﻿<Window x:Class="Tournament_Management_Software.View.Contestants.AddContestantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tournament_Management_Software.View.Contestants"
+        mc:Ignorable="d"
+        Title="AddContestantWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Tournament Management Software;component/Images/tournament banner.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid x:Name="CustomerEdit" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10" Columns="2">
+            <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            -->
+            <!--First Name-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--Last Name-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--Date of birth-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--Height-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--Weight-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--Gender-->
+            <!--
+            <RowDefinition/>
+            -->
+            <!--TournamentId-->
+            <!--
+            <RowDefinition Height="2*"/>
+            -->
+            <!--Button-->
+            <!--
+
+
+        </Grid.RowDefinitions>-->
+
+            <TextBlock Name="LblFirstName" Foreground="#FFDADADA" Text="First Name" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding TxtContestantFirstName, Mode=TwoWay}" Margin="2" VerticalAlignment="Center" TextAlignment="Center"/>
+
+            <TextBlock  Name="LblLastName" Foreground="#FFDADADA" Text="Last Name" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding TxtContestantLastName, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"></TextBox>
+
+            <TextBlock Foreground="#FFDADADA" Text="Date of birth" FontWeight="Bold" VerticalAlignment="Center"/>
+            <DatePicker SelectedDate="{Binding DtPickerDateOfBirth}" x:Name="DtPicker" VerticalAlignment="Center" HorizontalAlignment="Stretch" FirstDayOfWeek="Monday" Text="Date of birth" />
+
+            <TextBlock Foreground="#FFDADADA" Text="Height" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding TxtContestantHeight, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
+
+            <TextBlock Foreground="#FFDADADA" Text="Weight" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding TxtContestantWeight, Mode=TwoWay}" VerticalAlignment="Center" Margin="2"/>
+
+            <TextBlock Foreground="#FFDADADA" Text="Gender" FontWeight="Bold" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch" >
+                <RadioButton x:Name="Male" Content="Male" IsChecked="{Binding IsMale}" Margin="2,2,5,2" FontWeight="Bold"/>
+                <RadioButton x:Name="Female" Content="Female" Margin="5,2,2,2" FontWeight="Bold"/>
+            </StackPanel>
+
+            <!--TextBlock Text="Tournament ID" FontWeight="Bold" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding TournamentId}" VerticalAlignment="Center"/>-->
+        </UniformGrid>
+
+
+        <Button Content="REGISTER CONTESTANT" Command="{Binding AddNewContestantCommand}"  Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="EditButton" Padding="2" Background="#FF132334" Cursor="Hand" FontSize="16" FontWeight="Bold" FontFamily="Segoe Print" Foreground="#FFEAEAEA"/>
+    </Grid>
+</Window>

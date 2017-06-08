@@ -6,20 +6,19 @@ using Tournament_Management_Software.ViewModels.Contestants;
 namespace Tournament_Management_Software.View.Contestants
 {
     /// <summary>
-    /// Interaction logic for ContestantEditView.xaml
+    /// Interaction logic for AllUsersView.xaml
     /// </summary>
-    public partial class AddContestantView : UserControl
+    public partial class ShowAllContestantsView : UserControl
     {
-        public AddContestantView()
+        public ShowAllContestantsView()
         {
-            Messenger.Default.Register<ActiveTournamentId>(this, SetDataContext);
-            InitializeComponent();           
+            Messenger.Default.Register<ActiveTournamentId>(this,  SetDataContext);
+            InitializeComponent();
         }
 
         public void SetDataContext(ActiveTournamentId action)
         {
-            DataContext = new AddContestantViewModel(action.Message);
+            DataContext = new ShowAllContestantsViewModel(action.Message);
         }
-
     }
 }

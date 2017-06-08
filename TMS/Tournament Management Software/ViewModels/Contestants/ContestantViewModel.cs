@@ -4,6 +4,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Tournament_Management_Software.Helpers;
 using Tournament_Management_Software.Helpers.Messages;
+using Tournament_Management_Software.View.Contestants;
 
 namespace Tournament_Management_Software.ViewModels.Contestants
 {
@@ -11,7 +12,7 @@ namespace Tournament_Management_Software.ViewModels.Contestants
     {
         private readonly int _tournamentId;
         public string ViewTitle { get; set; } = "CONTESTANT VIEW";
-        public string ImagePath => @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\register_banner.jpg";
+        public string ImagePath => @"C:\Users\Karol\Desktop\TMS WPF\TMS REPO\TMS\Tournament Management Software\Images\tournament background cont.jpg";
         public Visibility ImageVisibility = Visibility.Visible;
 
         public void InitiateListView()
@@ -48,9 +49,10 @@ namespace Tournament_Management_Software.ViewModels.Contestants
         }
         public void AddNewContestant()
         {
+            new AddContestantWindow().Show();
             if (_tournamentId != 0)
             {
-                _currentView = new AddContestantViewModel(_tournamentId);
+                new AddContestantWindow().Show();
             }
             ImageVisibility = Visibility.Collapsed;
             RaisePropertyChangedEvent("CurrentView");
